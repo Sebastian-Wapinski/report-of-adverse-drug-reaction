@@ -12,6 +12,7 @@ export const Button = (props) => {
 
   return (
     <StyledButton
+      onClick={onClick}
       {...otherProps}
     >
       {children}

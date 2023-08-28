@@ -5,6 +5,7 @@ import { StyledPageSideEffectsForm } from './PageSideEffectsForm.styled'
 
 import PageTitle from '../../components/PageTitle'
 import PageSubtitle from '../../components/PageSubtitle'
+import NextPrevPage from '../../components/NextPrevPage'
 
 import {
   PAGE_TITLE,
@@ -28,6 +29,7 @@ export const PageSideEffectsForm = (props) => {
         {PAGE_SUBTITLE}
       </PageSubtitle>
       3
+      <NextPrevPage />
     </StyledPageSideEffectsForm>
   )
 }

@@ -5,6 +5,7 @@ import { StyledPageMedicinesForm } from './PageMedicinesForm.styled'
 
 import PageTitle from '../../components/PageTitle'
 import PageSubtitle from '../../components/PageSubtitle'
+import NextPrevPage from '../../components/NextPrevPage'
 
 import {
   PAGE_TITLE,
@@ -28,6 +29,7 @@ export const PageMedicinesForm = (props) => {
         {PAGE_SUBTITLE}
       </PageSubtitle>
       5
+      <NextPrevPage />
     </StyledPageMedicinesForm>
   )
 }

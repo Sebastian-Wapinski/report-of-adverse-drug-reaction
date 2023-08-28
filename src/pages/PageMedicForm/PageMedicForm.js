@@ -5,12 +5,12 @@ import { StyledPageMedicForm } from './PageMedicForm.styled'
 
 import PageTitle from '../../components/PageTitle'
 import PageSubtitle from '../../components/PageSubtitle'
+import NextPrevPage from '../../components/NextPrevPage'
 
 import {
   PAGE_TITLE,
   PAGE_SUBTITLE
 } from '../consts'
-import NextPrevPage from '../../components/NextPrevPage/NextPrevPage'
 
 export const PageMedicForm = (props) => {
   const {

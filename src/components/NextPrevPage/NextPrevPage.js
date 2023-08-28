@@ -12,11 +12,17 @@ export const NextPrevPage = (props) => {
     ...otherProps
   } = props
 
+  const AMOUNT_OF_ALL_PAGES = 5
   const { pageSide, setPageSide } = React.useContext(ChangePageContext)
 
   const setPreviousSide = React.useCallback(() => {
     if (pageSide === 1) return
     setPageSide(pageSide - 1)
+  }, [pageSide, setPageSide])
+
+  const setNextSide = React.useCallback(() => {
+    if (pageSide === AMOUNT_OF_ALL_PAGES) return
+    setPageSide(pageSide + 1)
   }, [pageSide, setPageSide])
 
   return (
@@ -28,7 +34,9 @@ export const NextPrevPage = (props) => {
       >
         PREVIOUS FORM
       </Button>
-      <Button>
+      <Button
+        onClick={setNextSide}
+      >
         NEXT FORM
       </Button>
     </StyledNextPrevPage>
