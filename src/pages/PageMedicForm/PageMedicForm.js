@@ -11,6 +11,7 @@ import {
   PAGE_TITLE,
   PAGE_SUBTITLE
 } from '../consts'
+import CardButtonsContainer from '../../components/CardButtonsContainer/CardButtonsContainer'
 
 export const PageMedicForm = (props) => {
   const {
@@ -29,6 +30,7 @@ export const PageMedicForm = (props) => {
         {PAGE_SUBTITLE}
       </PageSubtitle>
       1
+      <CardButtonsContainer />
       <NextPrevPage />
     </StyledPageMedicForm>
   )
