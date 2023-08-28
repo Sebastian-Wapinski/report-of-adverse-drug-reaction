@@ -1,0 +1,71 @@
+{
+  "module-templates.engine": "handlebars",
+  "module-templates.templates": {
+    "react-component-function-module-components": {
+      "displayName": "React function component + CSS module",
+      "defaultPath": "src/components",
+      "folder": "{{pascal name}}",
+      "questions": {
+        "name": "Component name"
+      },
+      "files": [
+        {
+          "name": "{{pascal name}}.js",
+          "content": [
+            "import React from 'react'",
+            "import PropTypes from 'prop-types'",
+            "",
+            "import { Styled{{pascal name}} } from './{{pascal name}}.styled'",
+            "",
+            "export const {{pascal name}} = (props) => {",
+            "  const {",
+            "    children,",
+            "    ...otherProps",
+            "  } = props",
+            "",
+            "  return (",
+            "    <Styled{{pascal name}}",
+            "      {...otherProps}",
+            "    >",
+            "      {children}",
+            "    </Styled{{pascal name}}>",
+            "  )",
+            "}",
+            "",
+            "{{pascal name}}.propTypes = {",
+            "  children: PropTypes.node",
+            "}",
+            "",
+            "export default {{pascal name}}",
+            ""
+          ]
+        },
+        {
+          "name": "index.js",
+          "content": [
+            "export * from './{{pascal name}}'",
+            "export { default } from './{{pascal name}}'",
+            ""
+          ]
+        },
+        {
+          "name": "{{pascal name}}.styled.js",
+          "content": [
+            "import styled from 'styled-components'",
+            "",
+            "const DefaultStyled{{pascal name}} = styled.div`",
+            "",
+            "`",
+            "",
+            "const Styled{{pascal name}} = styled(DefaultStyled{{pascal name}})(",
+            "  props => props.style",
+            ")",
+            "",
+            "export { Styled{{pascal name}} }",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}
