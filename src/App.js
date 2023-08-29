@@ -7,13 +7,30 @@ import PageSideEffectsForm from './pages/PageSideEffectsForm'
 import PageClassificationForm from './pages/PageClassificationForm'
 import PageMedicinesForm from './pages/PageMedicinesForm'
 
+import PageTitle from './components/PageTitle'
+import PageSubtitle from './components/PageSubtitle'
+import NextPrevPage from './components/NextPrevPage'
+import CardButtonsContainer from './components/CardButtonsContainer'
+
 import { ChangePageContext } from './contexts/ChangePageContext'
+
+import {
+  PAGE_TITLE,
+  PAGE_SUBTITLE
+} from './pages/consts'
 
 const App = () => {
   const { pageSide } = React.useContext(ChangePageContext)
 
   return (
     <DataContainer>
+      <PageTitle>
+        {PAGE_TITLE}
+      </PageTitle>
+      <PageSubtitle>
+        {PAGE_SUBTITLE}
+      </PageSubtitle>
+      <CardButtonsContainer />
       {
         pageSide === 1 ?
           <PageMedicForm />
@@ -32,6 +49,7 @@ const App = () => {
                   :
                   null
       }
+      <NextPrevPage />
     </DataContainer>
   )
 }
