@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { StyledPagePatientForm } from './PagePatientForm.styled'
+import { FormContainer } from '../../components/FormContainer'
+import { formPatientData } from '../../data/formPatientData'
 
 export const PagePatientForm = (props) => {
   const {
@@ -14,6 +16,9 @@ export const PagePatientForm = (props) => {
       {...otherProps}
     >
       2
+      <FormContainer
+        formData={formPatientData}
+      />
     </StyledPagePatientForm>
   )
 }

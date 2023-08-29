@@ -1,4 +1,4 @@
-import { v5 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid'
 
 import {
   REQUIRE_AT_LEAST_2_CHARACTERS,

@@ -1,28 +1,30 @@
+import { v4 as uuid } from 'uuid'
+
 export const allFormsBasicData = [
   {
-    id: 'allFormsBasicData-1',
+    id: uuid(),
     pageNumber: 1,
-    description: 'DANE LEKARZA'
+    description: 'MEDIC DATA'
   },
   {
-    id: 'allFormsBasicData-2',
+    id: uuid(),
     pageNumber: 2,
-    description: 'DANE PACJENTA'
+    description: 'PATIENT DATA'
   },
   {
-    id: 'allFormsBasicData-3',
+    id: uuid(),
     pageNumber: 3,
-    description: 'DZIAŁANIA NIEPOŻĄDANE'
+    description: 'SIDE EFFECTS'
   },
   {
-    id: 'allFormsBasicData-4',
+    id: uuid(),
     pageNumber: 4,
-    description: 'KLASYFIKACJA'
+    description: 'CLASSIFICATION'
   },
   {
-    id: 'allFormsBasicData-5',
+    id: uuid(),
     pageNumber: 5,
-    description: 'DANE O LEKACH'
+    description: 'MEDICINES'
   }
 ]
 
