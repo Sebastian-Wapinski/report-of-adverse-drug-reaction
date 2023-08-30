@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 import { StyledFormField } from './FormField.styled'
 
-import FieldText from '../FieldText'
-import FieldNumber from '../FieldNumber'
-import FieldRange from '../FieldRange/FieldRange'
+import { checkTypeData } from '../../data/checkTypeData'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
@@ -23,7 +21,7 @@ export const FormField = (props) => {
   const { setFieldData } = React.useContext(RenderingFieldContext)
 
   React.useEffect(() => {
-    setFieldData(() => fieldData)
+    setFieldData(() => JSON.parse(JSON.stringify(fieldData)))
   }, [fieldData, setFieldData])
 
   return (
@@ -31,16 +29,15 @@ export const FormField = (props) => {
       {...otherProps}
     >
       {
-        type === 'text' ?
-          <FieldText />
-          :
-          type === 'number' ?
-            <FieldNumber />
-            :
-            type === 'range' ?
-              <FieldRange />
+        checkTypeData.map(arrayPosition => {
+          const { checkType, useField } = arrayPosition
+          return (
+            checkType === type ?
+              useField
               :
               null
+          )
+        })
       }
     </StyledFormField>
   )

@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 
 import { StyledPageMedicinesForm } from './PageMedicinesForm.styled'
 
+import { FormContainer } from '../../components/FormContainer'
+
+import { formMedicinesData } from '../../data/formMedicinesData'
+
 export const PageMedicinesForm = (props) => {
   const {
     children,
@@ -14,6 +18,9 @@ export const PageMedicinesForm = (props) => {
       {...otherProps}
     >
       5
+      <FormContainer
+        formData={formMedicinesData}
+      />
     </StyledPageMedicinesForm>
   )
 }

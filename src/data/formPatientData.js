@@ -34,10 +34,19 @@ export const formPatientData = [
     name: 'sex',
     label: 'SEX:',
     radioBtn: [
-      'Male', 'Female'
+      {
+        value: 'male',
+        radioId: 'male',
+        radioLabel: 'Male'
+      },
+      {
+        value: 'female',
+        radioId: 'female',
+        radioLabel: 'Female'
+      }
     ],
     isRequire: true,
-    type: 'checkbox'
+    type: 'radio'
   },
   {
     id: uuid(),

@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 
 import { StyledPageClassificationForm } from './PageClassificationForm.styled'
 
+import { formClassificationData } from '../../data/formClassificationData'
+
+import { FormContainer } from '../../components/FormContainer'
+
 export const PageClassificationForm = (props) => {
   const {
     children,
@@ -14,6 +18,9 @@ export const PageClassificationForm = (props) => {
       {...otherProps}
     >
       4
+      <FormContainer
+        formData={formClassificationData}
+      />
     </StyledPageClassificationForm>
   )
 }

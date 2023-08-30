@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 
 import { StyledFieldCheckbox } from './FieldCheckbox.styled'
 
-import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-
 import Label from '../Label'
 import Input from '../Input'
+import Text from '../Text'
+import CheckboxContainer from '../CheckboxContainer'
+
+import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
 export const FieldCheckbox = (props) => {
   const {
@@ -14,22 +16,35 @@ export const FieldCheckbox = (props) => {
     ...otherProps
   } = props
 
-  const { fieldData: { id, name, label } } = React.useContext(RenderingFieldContext)
+  const { fieldData } = React.useContext(RenderingFieldContext)
+  const { label, checkboxBtn = [] } = fieldData
 
   return (
     <StyledFieldCheckbox
       {...otherProps}
     >
-      <Label
-        htmlFor={id}
-      >
-        {label}
-      </Label>
-      <Input
-        type={'checkbox'}
-        id={id}
-        name={name}
+      <Text
+        text={label}
       />
+      {
+        checkboxBtn.map(checker => {
+          const { checkboxId, checkboxName, checkboxLabel } = checker
+          return (
+            <CheckboxContainer
+              key={checkboxId}
+            >
+              <Input
+                type={'checkbox'}
+                id={checkboxId}
+                name={checkboxName}
+              />
+              <Label>
+                {checkboxLabel}
+              </Label>
+            </CheckboxContainer>
+          )
+        })
+      }
     </StyledFieldCheckbox>
   )
 }
