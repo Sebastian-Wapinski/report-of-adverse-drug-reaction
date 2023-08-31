@@ -18,7 +18,7 @@ export const FormField = (props) => {
     type = 'text'
   } = fieldData
 
-  const { setFieldData } = React.useContext(RenderingFieldContext)
+  const { fieldData: contextFieldData, setFieldData } = React.useContext(RenderingFieldContext)
 
   React.useEffect(() => {
     setFieldData(() => JSON.parse(JSON.stringify(fieldData)))
@@ -29,15 +29,19 @@ export const FormField = (props) => {
       {...otherProps}
     >
       {
-        checkTypeData.map(arrayPosition => {
-          const { checkType, useField } = arrayPosition
-          return (
-            checkType === type ?
-              useField
-              :
-              null
-          )
-        })
+        Object.keys(contextFieldData).length !== 0 ?
+          checkTypeData.map(arrayPosition => {
+            const { checkType, useField } = arrayPosition
+
+            return (
+              checkType === type ?
+                useField
+                :
+                null
+            )
+          })
+          :
+          null
       }
     </StyledFormField>
   )

@@ -2,10 +2,10 @@ import React from 'react'
 
 import DataContainer from './components/DataContainer'
 import PageMedicForm from './pages/PageMedicForm'
-import PagePatientForm from './pages/PagePatientForm'
-import PageSideEffectsForm from './pages/PageSideEffectsForm'
-import PageClassificationForm from './pages/PageClassificationForm'
-import PageMedicinesForm from './pages/PageMedicinesForm'
+// import PagePatientForm from './pages/PagePatientForm'
+// import PageSideEffectsForm from './pages/PageSideEffectsForm'
+// import PageClassificationForm from './pages/PageClassificationForm'
+// import PageMedicinesForm from './pages/PageMedicinesForm'
 
 import PageTitle from './components/PageTitle'
 import PageSubtitle from './components/PageSubtitle'
@@ -35,19 +35,19 @@ const App = () => {
         pageSide === 1 ?
           <PageMedicForm />
           :
-          pageSide === 2 ?
-            <PagePatientForm />
-            :
-            pageSide === 3 ?
-              <PageSideEffectsForm />
-              :
-              pageSide === 4 ?
-                <PageClassificationForm />
-                :
-                pageSide === 5 ?
-                  <PageMedicinesForm />
-                  :
-                  null
+          // pageSide === 2 ?
+          //   <PagePatientForm />
+          //   :
+          //   pageSide === 3 ?
+          //     <PageSideEffectsForm />
+          //     :
+          //     pageSide === 4 ?
+          //       <PageClassificationForm />
+          //       :
+          //       pageSide === 5 ?
+          //         <PageMedicinesForm />
+          //         :
+          null
       }
       <NextPrevPage />
     </DataContainer>

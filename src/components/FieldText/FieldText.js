@@ -14,7 +14,7 @@ export const FieldText = (props) => {
     ...otherProps
   } = props
 
-  const { fieldData: { id, name, label, placeholder } } = React.useContext(RenderingFieldContext)
+  const { fieldData: { id, name, label, placeholder, textErrorMessage, isRequired } } = React.useContext(RenderingFieldContext)
 
   return (
     <StyledFieldText
@@ -22,6 +22,7 @@ export const FieldText = (props) => {
     >
       <Label
         htmlFor={id}
+        isRequired={isRequired}
       >
         {label}
       </Label>
@@ -30,6 +31,7 @@ export const FieldText = (props) => {
         id={id}
         placeholder={placeholder}
         name={name}
+        errorMessage={textErrorMessage}
       />
     </StyledFieldText>
   )

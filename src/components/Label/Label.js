@@ -6,11 +6,13 @@ import { StyledLabel } from './Label.styled'
 export const Label = (props) => {
   const {
     children,
+    isRequired,
     ...otherProps
   } = props
 
   return (
     <StyledLabel
+      isRequired={isRequired}
       {...otherProps}
     >
       {children}
@@ -19,7 +21,8 @@ export const Label = (props) => {
 }
 
 Label.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  isRequired: PropTypes.bool
 }
 
 export default Label

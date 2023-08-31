@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { v4 as uuid } from 'uuid'
+
 import { FieldText } from '../components/FieldText'
 import { FieldNumber } from '../components/FieldNumber'
 import { FieldRange } from '../components/FieldRange'
@@ -12,34 +14,34 @@ import { FieldList } from '../components/FieldList'
 export const checkTypeData = [
   {
     checkType: 'text',
-    useField: <FieldText />
+    useField: <FieldText key={uuid()}/>
   },
   {
     checkType: 'number',
-    useField: <FieldNumber />
+    useField: <FieldNumber key={uuid()}/>
   },
   {
     checkType: 'range',
-    useField: <FieldRange />
+    useField: <FieldRange key={uuid()}/>
   },
   {
     checkType: 'radio',
-    useField: <FieldRadio />
+    useField: <FieldRadio key={uuid()}/>
   },
   {
     checkType: 'textarea',
-    useField: <FieldTextarea />
+    useField: <FieldTextarea key={uuid()}/>
   },
   {
     checkType: 'toggle',
-    useField: <FieldToggle />
+    useField: <FieldToggle key={uuid()}/>
   },
   {
     checkType: 'checkbox',
-    useField: <FieldCheckbox />
+    useField: <FieldCheckbox key={uuid()}/>
   },
   {
     checkType: 'list',
-    useField: <FieldList />
+    useField: <FieldList key={uuid()}/>
   }
 ]
