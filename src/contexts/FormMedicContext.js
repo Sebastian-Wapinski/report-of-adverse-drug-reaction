@@ -26,16 +26,6 @@ const init = {
   phoneIsValid: false,
   zipCodeIsValid: false,
 
-  doctorFirstNameIsClicked: false,
-  doctorLastNameIsClicked: false,
-  cityNameIsClicked: false,
-  streetNameIsClicked: false,
-  streetNumberIsClicked: false,
-  medicalFacilityIsClicked: false,
-  emailIsClicked: false,
-  phoneIsClicked: false,
-  zipCodeIsClicked: false,
-
   dispatch: errorMsg
 }
 

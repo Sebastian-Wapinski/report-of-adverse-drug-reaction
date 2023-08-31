@@ -12,7 +12,7 @@ export const Label = (props) => {
 
   return (
     <StyledLabel
-      isRequired={isRequired}
+      required={isRequired}
       {...otherProps}
     >
       {children}

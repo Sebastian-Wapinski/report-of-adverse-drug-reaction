@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { StyledInput } from './Input.styled'
-import { FormMedicContext } from '../../contexts/FormMedicContext'
 import { validateForm } from '../../validation/validateForm'
+import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
+import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const Input = (props) => {
   const {
@@ -12,28 +13,32 @@ export const Input = (props) => {
     ...otherProps
   } = props
 
-  const formMedicContext = React.useContext(FormMedicContext)
+  const { fieldData } = React.useContext(RenderingFieldContext)
+
+  const { contextForm } = React.useContext(ChangeFormContext)
+  const formContext = React.useContext(contextForm)
+
+  // console.log(fieldData)
 
   const handleChangeData = (e) => {
-    formMedicContext.dispatch(e.target)
-    validateForm(e.target, formMedicContext.dispatch)
-  }
+    formContext.dispatch(e.target)
+    validateForm(e.target, formContext.dispatch, fieldData)
 
-  const handleClicked = () => {
-    formMedicContext.dispatch({ name: [name + 'IsClicked'], value: true })
+    if (e.target.type === 'radio') {
+      console.log('radio')
+    }
   }
 
   return (
     <>
       <StyledInput
         onChange={handleChangeData}
-        onClick={handleClicked}
-        value={formMedicContext[name]}
+        value={formContext[name]}
         name={name}
         {...otherProps}
       />
       {
-      (formMedicContext[name + 'IsValid'] === false) && (formMedicContext[name + 'IsClicked'] === true) ?
+      (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?
         <div>{ errorMessage }</div>
         :
         null

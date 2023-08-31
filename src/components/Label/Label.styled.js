@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const DefaultStyledLabel = styled.label`
 ${
-  props => props.isRequired === true && css`
+  props => props.required === true && css`
   &::before {
     content:'*'
   }

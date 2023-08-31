@@ -21,7 +21,7 @@ export const FormField = (props) => {
   const { fieldData: contextFieldData, setFieldData } = React.useContext(RenderingFieldContext)
 
   React.useEffect(() => {
-    setFieldData(() => JSON.parse(JSON.stringify(fieldData)))
+    setFieldData(() => fieldData)
   }, [fieldData, setFieldData])
 
   return (

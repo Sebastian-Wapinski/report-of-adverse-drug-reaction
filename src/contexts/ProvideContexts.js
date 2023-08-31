@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import ProviderChangePageContext from './ChangePageContext'
 import FormMedicContextProvider from './FormMedicContext'
+import ProviderChangeFormContext from './ChangeFormContext'
+import FormPatientContextProvider from './FormPatientContext'
 
 export const ProvideContexts = (props) => {
   const { children } = props
@@ -10,7 +12,11 @@ export const ProvideContexts = (props) => {
   return (
     <ProviderChangePageContext>
       <FormMedicContextProvider>
-        {children}
+        <ProviderChangeFormContext>
+          <FormPatientContextProvider>
+            {children}
+          </FormPatientContextProvider>
+        </ProviderChangeFormContext>
       </FormMedicContextProvider>
     </ProviderChangePageContext>
   )

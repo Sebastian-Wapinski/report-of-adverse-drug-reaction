@@ -1,19 +1,15 @@
-import { formMedicData } from '../data/formMedicData'
-
-export const validateForm = (formInputs, setValueForIsValid) => {
+export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
   const {
     name,
     value
   } = formInputs
 
-  console.log(name, value)
-
-  const filteredValidationData = formMedicData.filter(item => item.name === name)
-
   const {
     minAmountOfCharacters,
     regExp
-  } = filteredValidationData[0]
+  } = formFieldData
+
+  // console.log(formFieldData)
 
   if (
     (

@@ -29,7 +29,7 @@ export const FieldRadio = (props) => {
       {
         Object.keys(fieldData).length !== 0 ?
           radioBtn.map(radioPosition => {
-            const { value, radioId, radioLabel } = radioPosition
+            const { value, radioId, radioLabel, checked } = radioPosition
 
             return (
               <RadioContainer
@@ -40,6 +40,7 @@ export const FieldRadio = (props) => {
                   name={name}
                   type={'radio'}
                   id={radioId}
+                  checked={checked}
                 />
                 <Label
                   htmlFor={radioId}

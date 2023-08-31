@@ -2,7 +2,7 @@ import React from 'react'
 
 import DataContainer from './components/DataContainer'
 import PageMedicForm from './pages/PageMedicForm'
-// import PagePatientForm from './pages/PagePatientForm'
+import PagePatientForm from './pages/PagePatientForm'
 // import PageSideEffectsForm from './pages/PageSideEffectsForm'
 // import PageClassificationForm from './pages/PageClassificationForm'
 // import PageMedicinesForm from './pages/PageMedicinesForm'
@@ -35,9 +35,9 @@ const App = () => {
         pageSide === 1 ?
           <PageMedicForm />
           :
-          // pageSide === 2 ?
-          //   <PagePatientForm />
-          //   :
+          pageSide === 2 ?
+            <PagePatientForm />
+            :
           //   pageSide === 3 ?
           //     <PageSideEffectsForm />
           //     :
@@ -47,7 +47,7 @@ const App = () => {
           //       pageSide === 5 ?
           //         <PageMedicinesForm />
           //         :
-          null
+            null
       }
       <NextPrevPage />
     </DataContainer>

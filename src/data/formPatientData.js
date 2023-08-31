@@ -14,7 +14,7 @@ export const formPatientData = [
     label: 'INITIALS:',
     textErrorMessage: REQUIRE_AT_LEAST_2_CHARACTERS,
     minAmountOfCharacters: 2,
-    isRequire: true
+    isRequired: true
   },
   {
     id: uuid(),
@@ -26,7 +26,7 @@ export const formPatientData = [
     currentDay: new Date().getDate(),
     currentMonth: new Date().getMonth() + 1,
     currentYear: new Date().getFullYear(),
-    isRequire: true,
+    isRequired: true,
     type: 'text'
   },
   {
@@ -37,22 +37,24 @@ export const formPatientData = [
       {
         value: 'male',
         radioId: 'male',
-        radioLabel: 'Male'
+        radioLabel: 'Male',
+        checked: false
       },
       {
         value: 'female',
         radioId: 'female',
-        radioLabel: 'Female'
+        radioLabel: 'Female',
+        checked: false
       }
     ],
-    isRequire: true,
+    isRequired: true,
     type: 'radio'
   },
   {
     id: uuid(),
     name: 'age',
     label: 'AGE:',
-    isRequire: true,
+    isRequired: true,
     min: 0,
     max: 120,
     type: 'range',
@@ -62,7 +64,7 @@ export const formPatientData = [
     id: uuid(),
     name: 'height',
     label: 'HEIGHT:',
-    isRequire: true,
+    isRequired: true,
     min: 0,
     max: 251,
     type: 'range',
@@ -74,7 +76,7 @@ export const formPatientData = [
     name: 'weight',
     label: 'WEIGHT:',
     textErrorMessage: 'Range is 0 - 610kg',
-    isRequire: true,
+    isRequired: true,
     type: 'number',
     min: 0,
     max: 610,
