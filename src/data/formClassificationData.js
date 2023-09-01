@@ -1,5 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
+import { REQUIRE_LIST_ELEMENT } from './consts'
+
 export const formClassificationData = [
   {
     id: uuid(),
@@ -32,13 +34,14 @@ export const formClassificationData = [
         checkboxLabel: 'OTHER MEDICALLY SIGNIFICANT'
       }
     ],
-    isRequire: true,
-    type: 'checkbox'
+    isRequired: false,
+    type: 'checkboxClassification'
   },
   {
     id: uuid(),
     name: 'result',
     label: 'CHOOSE RESULT:',
+    textErrorMessage: REQUIRE_LIST_ELEMENT,
     list: [
       {
         id: uuid(),
@@ -65,7 +68,7 @@ export const formClassificationData = [
         resultType: 'UNKNOWN'
       }
     ],
-    isRequire: true,
+    isRequired: true,
     type: 'list'
   }
 ]

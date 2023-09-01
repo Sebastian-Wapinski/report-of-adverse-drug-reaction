@@ -8,11 +8,10 @@ const errorMsg = () => {
 const init = {
   initials: '',
   birthDate: '',
-  sex: null,
+  sex: false,
   age: 0,
   height: 0,
   weight: 0,
-  checked: false,
 
   initialsIsValid: false,
   birthDateIsValid: false,
@@ -33,12 +32,12 @@ export const FormPatientContextProvider = (props) => {
     return { ...state, [name]: value }
   }
 
-  const [formMedicState, dispatch] = React.useReducer(reducer, init)
+  const [formPatientState, dispatch] = React.useReducer(reducer, init)
 
   return (
     <FormPatientContext.Provider
       value={{
-        ...formMedicState,
+        ...formPatientState,
         dispatch
       }}
     >

@@ -1,7 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const DefaultStyledText = styled.p`
-
+${
+  props => props.required === true && css`
+  &::before {
+    content:'*'
+  }
+  `
+}
 `
 
 const StyledText = styled(DefaultStyledText)(

@@ -10,6 +10,7 @@ import { FieldTextarea } from '../components/FieldTextarea'
 import { FieldToggle } from '../components/FieldToggle'
 import { FieldCheckbox } from '../components/FieldCheckbox'
 import { FieldList } from '../components/FieldList'
+import { FieldCheckboxClassification } from '../components/FieldCheckboxClassification'
 
 export const checkTypeData = [
   {
@@ -38,10 +39,14 @@ export const checkTypeData = [
   },
   {
     checkType: 'checkbox',
-    useField: <FieldCheckbox key={uuid()}/>
+    useField: <FieldCheckbox key={uuid()} />
   },
   {
     checkType: 'list',
     useField: <FieldList key={uuid()}/>
+  },
+  {
+    checkType: 'checkboxClassification',
+    useField: <FieldCheckboxClassification key={uuid()}/>
   }
 ]

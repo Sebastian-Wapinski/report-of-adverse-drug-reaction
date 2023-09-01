@@ -5,28 +5,29 @@ import { StyledInput } from './Input.styled'
 import { validateForm } from '../../validation/validateForm'
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+import { ErrorMessage } from '../ErrorMessage'
 
 export const Input = (props) => {
   const {
-    name,
     errorMessage,
+    name,
     ...otherProps
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
+  const { type } = fieldData
 
   const { contextForm } = React.useContext(ChangeFormContext)
   const formContext = React.useContext(contextForm)
 
-  // console.log(fieldData)
-
   const handleChangeData = (e) => {
+    if (type === 'toggle' || type === 'checkboxClassification' || type === 'checkbox') {
+      formContext.dispatch({ name, value: e.target.checked })
+      return
+    }
+
     formContext.dispatch(e.target)
     validateForm(e.target, formContext.dispatch, fieldData)
-
-    if (e.target.type === 'radio') {
-      console.log('radio')
-    }
   }
 
   return (
@@ -38,10 +39,16 @@ export const Input = (props) => {
         {...otherProps}
       />
       {
-      (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?
-        <div>{ errorMessage }</div>
-        :
-        null
+        type === 'radio' ||
+          type === 'range' ||
+            type === 'number' ||
+              type === 'checkbox' ?
+          null
+          :
+            (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?
+              <ErrorMessage>{ errorMessage }</ErrorMessage>
+              :
+              null
     }
     </>
   )

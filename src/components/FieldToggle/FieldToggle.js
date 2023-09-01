@@ -7,6 +7,7 @@ import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
 import Label from '../Label'
 import Input from '../Input'
+import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldToggle = (props) => {
   const {
@@ -15,22 +16,27 @@ export const FieldToggle = (props) => {
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { label, checkboxBtn = [] } = fieldData
-  const [checkboxId, checkboxName] = checkboxBtn
+  const { id, name, label, isRequired } = fieldData
+
+  const { contextForm } = React.useContext(ChangeFormContext)
+  const formContext = React.useContext(contextForm)
+  const { [name]: stateValue } = formContext
 
   return (
     <StyledFieldToggle
       {...otherProps}
     >
       <Label
-        htmlFor={checkboxId}
+        htmlFor={id}
+        isRequired={isRequired}
       >
         {label}
       </Label>
       <Input
         type={'checkbox'}
-        id={checkboxId}
-        name={checkboxName}
+        id={id}
+        checked={stateValue}
+        name={name}
       />
     </StyledFieldToggle>
   )

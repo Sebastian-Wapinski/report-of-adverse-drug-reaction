@@ -1,15 +1,27 @@
 export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
   const {
     name,
-    value
+    value,
+    innerText
   } = formInputs
 
   const {
     minAmountOfCharacters,
-    regExp
+    amountOfCharacters,
+    regExp,
+    min,
+    max,
+    list
   } = formFieldData
 
-  // console.log(formFieldData)
+  let listElemArr
+  if (list) {
+    listElemArr = list.map(elem => {
+      return (
+        elem.resultType
+      )
+    })
+  }
 
   if (
     (
@@ -20,8 +32,36 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
     )
           &&
           (
+            amountOfCharacters ?
+              value.length === amountOfCharacters
+              :
+              true
+          )
+          &&
+          (
             regExp ?
               regExp.test(value)
+              :
+              true
+          )
+          &&
+          (
+            min === 0 ?
+              value >= min
+              :
+              true
+          )
+          &&
+          (
+            max ?
+              value <= max
+              :
+              true
+          )
+          &&
+          (
+            listElemArr ?
+              listElemArr.includes(innerText)
               :
               true
           )

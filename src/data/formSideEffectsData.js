@@ -16,7 +16,7 @@ export const formSideEffectsData = [
     currentDay: new Date().getDate(),
     currentMonth: new Date().getMonth() + 1,
     currentYear: new Date().getFullYear(),
-    isRequire: true,
+    isRequired: true,
     type: 'text'
   },
   {
@@ -28,33 +28,21 @@ export const formSideEffectsData = [
     minAmountOfCharacters: 2,
     rows: 10,
     cols: 40,
-    isRequire: true,
+    isRequired: true,
     type: 'textarea'
   },
   {
     id: uuid(),
     name: 'sideEffectsIsPregnant',
     label: 'IS PATIENT PREGNANT:',
-    checkboxBtn: [
-      {
-        checkboxId: 'isPregnant',
-        checkboxName: 'isPregnant'
-      }
-    ],
-    isRequire: true,
+    isRequired: false,
     type: 'toggle'
   },
   {
     id: uuid(),
     name: 'sideEffectsSeverity',
     label: 'SERIOUS SIDE EFFECTS:',
-    checkboxBtn: [
-      {
-        checkboxId: 'areSerious',
-        checkboxName: 'areSerious'
-      }
-    ],
-    isRequire: true,
+    isRequired: false,
     type: 'toggle'
   }
 ]

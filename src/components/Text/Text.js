@@ -7,11 +7,13 @@ export const Text = (props) => {
   const {
     children,
     text,
+    isRequired,
     ...otherProps
   } = props
 
   return (
     <StyledText
+      required={isRequired}
       {...otherProps}
     >
       {text}
@@ -21,7 +23,8 @@ export const Text = (props) => {
 
 Text.propTypes = {
   children: PropTypes.node,
-  text: PropTypes.string
+  text: PropTypes.string,
+  isRequired: PropTypes.bool
 }
 
 export default Text

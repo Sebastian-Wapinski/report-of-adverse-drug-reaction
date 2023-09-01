@@ -12,6 +12,9 @@ import allFormsBasicData from '../../data/allFormsBasicData'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { FormPatientContext } from '../../contexts/FormPatientContext'
 import { FormMedicContext } from '../../contexts/FormMedicContext'
+import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
+import { FormClassificationContext } from '../../contexts/FormClassificationContext'
+import { FormMedicinesContext } from '../../contexts/FormMedicinesContext'
 
 export const NextPrevPage = (props) => {
   const {
@@ -37,6 +40,18 @@ export const NextPrevPage = (props) => {
       setContextForm(FormMedicContext)
     }
 
+    if (pageSide === 3) {
+      setContextForm(FormPatientContext)
+    }
+
+    if (pageSide === 4) {
+      setContextForm(FormSideEffectsContext)
+    }
+
+    if (pageSide === 5) {
+      setContextForm(FormClassificationContext)
+    }
+
     setPageSide(pageSide - 1)
   }, [pageSide, setContextForm, setPageSide])
 
@@ -52,6 +67,18 @@ export const NextPrevPage = (props) => {
 
     if (pageSide === 1) {
       setContextForm(FormPatientContext)
+    }
+
+    if (pageSide === 2) {
+      setContextForm(FormSideEffectsContext)
+    }
+
+    if (pageSide === 3) {
+      setContextForm(FormClassificationContext)
+    }
+
+    if (pageSide === 4) {
+      setContextForm(FormMedicinesContext)
     }
 
     setPageSide(pageSide + 1)

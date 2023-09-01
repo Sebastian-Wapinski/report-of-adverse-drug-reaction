@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { StyledFieldRadio } from './FieldRadio.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
+import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import Label from '../Label'
 import Input from '../Input'
@@ -17,7 +18,10 @@ export const FieldRadio = (props) => {
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { name, label, radioBtn = [] } = fieldData
+  const { name, label, radioBtn = [], isRequired } = fieldData
+
+  const { contextForm } = React.useContext(ChangeFormContext)
+  const { [name]: stateValue } = React.useContext(contextForm)
 
   return (
     <StyledFieldRadio
@@ -25,11 +29,12 @@ export const FieldRadio = (props) => {
     >
       <Text
         text={label}
+        isRequired={isRequired}
       />
       {
         Object.keys(fieldData).length !== 0 ?
           radioBtn.map(radioPosition => {
-            const { value, radioId, radioLabel, checked } = radioPosition
+            const { value, radioId, radioLabel } = radioPosition
 
             return (
               <RadioContainer
@@ -40,7 +45,7 @@ export const FieldRadio = (props) => {
                   name={name}
                   type={'radio'}
                   id={radioId}
-                  checked={checked}
+                  checked={value === stateValue}
                 />
                 <Label
                   htmlFor={radioId}

@@ -6,8 +6,10 @@ import { StyledFieldRange } from './FieldRange.styled'
 import Label from '../Label'
 import Input from '../Input'
 import Unit from '../Unit'
+import ErrorMessage from '../ErrorMessage'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
+import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldRange = (props) => {
   const {
@@ -15,12 +17,12 @@ export const FieldRange = (props) => {
     ...otherProps
   } = props
 
-  const { fieldData: { id, name, label, min = 0, max = 0, unit = '', step = 1 } } = React.useContext(RenderingFieldContext)
-  const [inputValue, setInputValue] = React.useState(0)
+  const { fieldData } = React.useContext(RenderingFieldContext)
+  const { id, name, label, min = 0, max = 0, unit = '', step = 1, isRequired, textErrorMessage } = fieldData
 
-  const changeInputValue = (e) => {
-    setInputValue(e.target.value)
-  }
+  const { contextForm } = React.useContext(ChangeFormContext)
+  const formContext = React.useContext(contextForm)
+  // const { [name]: stateValue } = formContext
 
   return (
     <StyledFieldRange
@@ -28,25 +30,32 @@ export const FieldRange = (props) => {
     >
       <Label
         htmlFor={id}
+        isRequired={isRequired}
       >
         {label}
       </Label>
       <Input
         type={'range'}
-        id={id}
-        name={name}
         min={min}
         max={max}
+        name={name}
         step={step}
-        value={inputValue}
-        onChange={changeInputValue}
       />
       <Input
-        type={'text'}
-        value={inputValue}
-        onChange={changeInputValue}
+        id={id}
+        type={'number'}
+        min={min}
+        max={max}
+        name={name}
+        step={step}
       />
       <Unit>{unit}</Unit>
+      {
+          (formContext[name + 'IsValid'] === false) && (formContext[name] !== 0) ?
+            <ErrorMessage>{ textErrorMessage }</ErrorMessage>
+            :
+            null
+        }
     </StyledFieldRange>
   )
 }

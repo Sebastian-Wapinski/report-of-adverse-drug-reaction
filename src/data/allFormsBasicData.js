@@ -1,6 +1,9 @@
 import { v4 as uuid } from 'uuid'
 import { FormMedicContext } from '../contexts/FormMedicContext'
 import { FormPatientContext } from '../contexts/FormPatientContext'
+import { FormSideEffectsContext } from '../contexts/FormSideEffectsContext'
+import { FormClassificationContext } from '../contexts/FormClassificationContext'
+import { FormMedicinesContext } from '../contexts/FormMedicinesContext'
 
 export const allFormsBasicData = [
   {
@@ -19,19 +22,19 @@ export const allFormsBasicData = [
     id: uuid(),
     pageNumber: 3,
     description: 'SIDE EFFECTS',
-    contextForm: null
+    contextForm: FormSideEffectsContext
   },
   {
     id: uuid(),
     pageNumber: 4,
     description: 'CLASSIFICATION',
-    contextForm: null
+    contextForm: FormClassificationContext
   },
   {
     id: uuid(),
     pageNumber: 5,
     description: 'MEDICINES',
-    contextForm: null
+    contextForm: FormMedicinesContext
   }
 ]
 

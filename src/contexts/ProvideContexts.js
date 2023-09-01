@@ -5,6 +5,9 @@ import ProviderChangePageContext from './ChangePageContext'
 import FormMedicContextProvider from './FormMedicContext'
 import ProviderChangeFormContext from './ChangeFormContext'
 import FormPatientContextProvider from './FormPatientContext'
+import FormSideEffectsContextProvider from './FormSideEffectsContext'
+import FormClassificationContextProvider from './FormClassificationContext'
+import FormMedicinesContextProvider from './FormMedicinesContext'
 
 export const ProvideContexts = (props) => {
   const { children } = props
@@ -14,7 +17,13 @@ export const ProvideContexts = (props) => {
       <FormMedicContextProvider>
         <ProviderChangeFormContext>
           <FormPatientContextProvider>
-            {children}
+            <FormSideEffectsContextProvider>
+              <FormClassificationContextProvider>
+                <FormMedicinesContextProvider>
+                  {children}
+                </FormMedicinesContextProvider>
+              </FormClassificationContextProvider>
+            </FormSideEffectsContextProvider>
           </FormPatientContextProvider>
         </ProviderChangeFormContext>
       </FormMedicContextProvider>

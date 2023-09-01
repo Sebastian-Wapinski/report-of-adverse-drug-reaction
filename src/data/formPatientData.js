@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 import {
-  REQUIRE_AT_LEAST_2_CHARACTERS,
+  REQUIRE_2_CHARACTERS,
   INVALID_DATE,
   REGEXP_DATE
 } from './consts'
@@ -12,8 +12,8 @@ export const formPatientData = [
     name: 'initials',
     placeholder: 'NN',
     label: 'INITIALS:',
-    textErrorMessage: REQUIRE_AT_LEAST_2_CHARACTERS,
-    minAmountOfCharacters: 2,
+    textErrorMessage: REQUIRE_2_CHARACTERS,
+    amountOfCharacters: 2,
     isRequired: true
   },
   {
@@ -37,14 +37,12 @@ export const formPatientData = [
       {
         value: 'male',
         radioId: 'male',
-        radioLabel: 'Male',
-        checked: false
+        radioLabel: 'Male'
       },
       {
         value: 'female',
         radioId: 'female',
-        radioLabel: 'Female',
-        checked: false
+        radioLabel: 'Female'
       }
     ],
     isRequired: true,
@@ -55,6 +53,7 @@ export const formPatientData = [
     name: 'age',
     label: 'AGE:',
     isRequired: true,
+    textErrorMessage: 'Range is 0 - 120',
     min: 0,
     max: 120,
     type: 'range',
@@ -64,6 +63,7 @@ export const formPatientData = [
     id: uuid(),
     name: 'height',
     label: 'HEIGHT:',
+    textErrorMessage: 'Range is 0 - 251cm',
     isRequired: true,
     min: 0,
     max: 251,
@@ -77,7 +77,7 @@ export const formPatientData = [
     label: 'WEIGHT:',
     textErrorMessage: 'Range is 0 - 610kg',
     isRequired: true,
-    type: 'number',
+    type: 'range',
     min: 0,
     max: 610,
     unit: 'kg'
