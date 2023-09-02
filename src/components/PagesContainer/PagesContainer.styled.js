@@ -1,0 +1,15 @@
+import styled from 'styled-components'
+
+const DefaultStyledPagesContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 40%;
+`
+
+const StyledPagesContainer = styled(DefaultStyledPagesContainer)(
+  props => props.style
+)
+
+export { StyledPagesContainer }

@@ -11,6 +11,7 @@ import PageTitle from './components/PageTitle'
 import PageSubtitle from './components/PageSubtitle'
 import NextPrevPage from './components/NextPrevPage'
 import CardButtonsContainer from './components/CardButtonsContainer'
+import PagesContainer from './components/PagesContainer'
 
 import { ChangePageContext } from './contexts/ChangePageContext'
 
@@ -18,6 +19,7 @@ import {
   PAGE_TITLE,
   PAGE_SUBTITLE
 } from './pages/consts'
+import ProgressBar from './components/ProgressBar/ProgressBar'
 
 const App = () => {
   const { pageSide } = React.useContext(ChangePageContext)
@@ -31,7 +33,8 @@ const App = () => {
         {PAGE_SUBTITLE}
       </PageSubtitle>
       <CardButtonsContainer />
-      {
+      <PagesContainer>
+        {
         pageSide === 1 ?
           <PageMedicForm />
           :
@@ -49,6 +52,8 @@ const App = () => {
                   :
                   null
       }
+      </PagesContainer>
+      <ProgressBar />
       <NextPrevPage />
     </DataContainer>
   )

@@ -8,6 +8,7 @@ import FormPatientContextProvider from './FormPatientContext'
 import FormSideEffectsContextProvider from './FormSideEffectsContext'
 import FormClassificationContextProvider from './FormClassificationContext'
 import FormMedicinesContextProvider from './FormMedicinesContext'
+import ProgressContextProvider from './ProgressContext'
 
 export const ProvideContexts = (props) => {
   const { children } = props
@@ -20,7 +21,9 @@ export const ProvideContexts = (props) => {
             <FormSideEffectsContextProvider>
               <FormClassificationContextProvider>
                 <FormMedicinesContextProvider>
-                  {children}
+                  <ProgressContextProvider>
+                    {children}
+                  </ProgressContextProvider>
                 </FormMedicinesContextProvider>
               </FormClassificationContextProvider>
             </FormSideEffectsContextProvider>

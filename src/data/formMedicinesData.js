@@ -14,7 +14,7 @@ export const formMedicinesData = [
     label: 'MEDICINE NAME:',
     textErrorMessage: REQUIRE_AT_LEAST_2_CHARACTERS,
     minAmountOfCharacters: 2,
-    isRequire: true
+    isRequired: true
   },
   {
     id: uuid(),
@@ -23,7 +23,7 @@ export const formMedicinesData = [
     label: 'MEDICINE DOSE:',
     textErrorMessage: REQUIRE_AT_LEAST_2_CHARACTERS,
     minAmountOfCharacters: 2,
-    isRequire: true
+    isRequired: true
   },
   {
     id: uuid(),
@@ -32,7 +32,7 @@ export const formMedicinesData = [
     label: 'MEDICINE ADMINISTRATION:',
     textErrorMessage: REQUIRE_AT_LEAST_2_CHARACTERS,
     minAmountOfCharacters: 2,
-    isRequire: true
+    isRequired: true
   },
   {
     id: uuid(),
@@ -41,6 +41,6 @@ export const formMedicinesData = [
     label: 'MEDICINE STARTS:',
     textErrorMessage: INVALID_DATE,
     regExp: REGEXP_DATE,
-    isRequire: true
+    isRequired: true
   }
 ]

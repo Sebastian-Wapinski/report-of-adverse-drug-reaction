@@ -17,18 +17,25 @@ export const FieldCheckboxClassification = (props) => {
     <StyledFieldCheckboxClassification
       {...otherProps}
     >
-      {
-        sideEffectsSeverity ?
-          <FieldCheckbox
-            isDisabled={{
-              isFetalInjury: {
-                isDisabledState: !sideEffectsIsPregnant
-              }
-            }}
-          />
-          :
-          null
-      }
+      <FieldCheckbox
+        isDisabled={{
+          isFetalInjury: {
+            isDisabledState: !sideEffectsIsPregnant
+          },
+          isDecease: {
+            isDisabledState: !sideEffectsSeverity
+          },
+          isDangerToLife: {
+            isDisabledState: !sideEffectsSeverity
+          },
+          isDisability: {
+            isDisabledState: !sideEffectsSeverity
+          },
+          isOther: {
+            isDisabledState: !sideEffectsSeverity
+          }
+        }}
+      />
     </StyledFieldCheckboxClassification>
   )
 }

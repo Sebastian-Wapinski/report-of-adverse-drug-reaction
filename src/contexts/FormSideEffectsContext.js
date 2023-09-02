@@ -13,8 +13,6 @@ const init = {
 
   sideEffectOccurDateIsValid: false,
   sideEffectsDescriptionIsValid: false,
-  sideEffectsIsPregnantIsValid: false,
-  sideEffectsSeverityIsValid: false,
 
   dispatch: errorMsg
 }
