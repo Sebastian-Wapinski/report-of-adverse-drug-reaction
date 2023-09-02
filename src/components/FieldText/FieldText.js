@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldText } from './FieldText.styled'
+import { StyledFieldText, StyledInput } from './FieldText.styled'
 
 import Label from '../Label'
-import Input from '../Input'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
@@ -17,23 +16,32 @@ export const FieldText = (props) => {
   const { fieldData: { id, name, label, placeholder, textErrorMessage, isRequired } } = React.useContext(RenderingFieldContext)
 
   return (
-    <StyledFieldText
-      {...otherProps}
-    >
-      <Label
-        htmlFor={id}
-        isRequired={isRequired}
+    <>
+      <StyledFieldText
+        {...otherProps}
       >
-        {label}
-      </Label>
-      <Input
-        type={'text'}
-        id={id}
-        placeholder={placeholder}
-        name={name}
-        errorMessage={textErrorMessage}
-      />
-    </StyledFieldText>
+        <Label
+          htmlFor={id}
+          isRequired={isRequired}
+        >
+          {label}
+        </Label>
+        <StyledInput
+          type={'text'}
+          id={id}
+          placeholder={placeholder}
+          name={name}
+          errorMessage={textErrorMessage}
+        />
+      </StyledFieldText>
+      {
+        (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?
+          <ErrorMessage>{ errorMessage }</ErrorMessage>
+          :
+          null
+    }
+    </>
+
   )
 }
 

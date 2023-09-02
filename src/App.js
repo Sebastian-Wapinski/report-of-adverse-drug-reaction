@@ -1,19 +1,17 @@
 import React from 'react'
 
 import DataContainer from './components/DataContainer'
-import PageMedicForm from './pages/PageMedicForm'
-import PagePatientForm from './pages/PagePatientForm'
-import PageSideEffectsForm from './pages/PageSideEffectsForm'
-import PageClassificationForm from './pages/PageClassificationForm'
-import PageMedicinesForm from './pages/PageMedicinesForm'
 
 import PageTitle from './components/PageTitle'
 import PageSubtitle from './components/PageSubtitle'
 import NextPrevPage from './components/NextPrevPage'
 import CardButtonsContainer from './components/CardButtonsContainer'
-import PagesContainer from './components/PagesContainer'
+// import PagesContainer from './components/PagesContainer'
+import Page from './components/Page'
 
 import { ChangePageContext } from './contexts/ChangePageContext'
+
+import { pagesData } from './data/pagesData'
 
 import {
   PAGE_TITLE,
@@ -24,6 +22,9 @@ import ProgressBar from './components/ProgressBar/ProgressBar'
 const App = () => {
   const { pageSide } = React.useContext(ChangePageContext)
 
+  const currentPage = pagesData.find(({ pageSide: pageSideData }) => pageSide === pageSideData)
+  const currentPageData = currentPage.pageData
+
   return (
     <DataContainer>
       <PageTitle>
@@ -33,26 +34,7 @@ const App = () => {
         {PAGE_SUBTITLE}
       </PageSubtitle>
       <CardButtonsContainer />
-      <PagesContainer>
-        {
-        pageSide === 1 ?
-          <PageMedicForm />
-          :
-          pageSide === 2 ?
-            <PagePatientForm />
-            :
-            pageSide === 3 ?
-              <PageSideEffectsForm />
-              :
-              pageSide === 4 ?
-                <PageClassificationForm />
-                :
-                pageSide === 5 ?
-                  <PageMedicinesForm />
-                  :
-                  null
-      }
-      </PagesContainer>
+      <Page pageData={currentPageData}/>
       <ProgressBar />
       <NextPrevPage />
     </DataContainer>

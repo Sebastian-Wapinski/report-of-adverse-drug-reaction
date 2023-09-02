@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 
 const DefaultStyledLabel = styled.label`
+color: ${
+  props => props.theme.primaryTextColor
+};
+font-weight: 500;
 ${
   props => props.required === true && css`
   &::before {
