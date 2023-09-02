@@ -17,7 +17,6 @@ export const PageClassificationForm = (props) => {
     <StyledPageClassificationForm
       {...otherProps}
     >
-      4
       <FormContainer
         formData={formClassificationData}
       />

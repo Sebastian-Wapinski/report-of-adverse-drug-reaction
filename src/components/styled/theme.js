@@ -1,7 +1,7 @@
 export const theme = {
   primaryBackground: '#ABFFDA',
-  primaryBorder: '#86EBBF',
-  primaryTextColor: '#4A9E7A'
+  primaryBorder: '#2F3C35',
+  primaryTextColor: '#494949'
 }
 
 export default theme

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Button } from '../Button'
 
-const DefaultStyledCardButton = styled.button`
+const DefaultStyledCardButton = styled(Button)`
 
 `
 

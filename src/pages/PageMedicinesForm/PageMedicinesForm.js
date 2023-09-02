@@ -17,7 +17,6 @@ export const PageMedicinesForm = (props) => {
     <StyledPageMedicinesForm
       {...otherProps}
     >
-      5
       <FormContainer
         formData={formMedicinesData}
       />

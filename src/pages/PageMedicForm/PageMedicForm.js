@@ -17,7 +17,6 @@ export const PageMedicForm = (props) => {
     <StyledPageMedicForm
       {...otherProps}
     >
-      1
       <FormContainer
         formData={formMedicData}
       />

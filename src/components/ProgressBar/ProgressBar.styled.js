@@ -1,10 +1,16 @@
 import styled, { css } from 'styled-components'
 
 const DefaultStyledProgressBar = styled.div`
-position: relative;
-border: 1px solid black;
+display: flex;
 width: 50%;
-height: 1.3rem;
+height: 2rem;
+border: none;
+border-radius: 50px;
+background: linear-gradient(145deg, #b7ffe9, #9ae6c4);
+box-shadow:  12px 12px 24px #79b59b, -12px -12px 24px #ddffff;
+color: ${props => props.theme.primaryTextColor};
+font-weight: 600;
+transition: all 0.3s ease-in-out;
 `
 
 const StyledProgressBar = styled(DefaultStyledProgressBar)(
@@ -23,10 +29,10 @@ ${
 `
 
 const ProgressPercentageNumber = styled.div`
-position: absolute;
-left: 0;
-right: 0;
-text-align: center;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 export { StyledProgressBar, ProgressPercentageBar, ProgressPercentageNumber }

@@ -15,7 +15,6 @@ export const PageSideEffectsForm = (props) => {
     <StyledPageSideEffectsForm
       {...otherProps}
     >
-      3
       <FormContainer
         formData={formSideEffectsData}
       />

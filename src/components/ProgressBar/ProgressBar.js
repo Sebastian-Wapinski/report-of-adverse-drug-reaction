@@ -22,10 +22,10 @@ export const ProgressBar = (props) => {
       <ProgressPercentageBar
         $widthPercentage={correctlyValidatedFields ? ((correctlyValidatedFields / requiredFields) * 100) : false}
       >
-        <ProgressPercentageNumber>
-          {((correctlyValidatedFields / requiredFields) * 100).toFixed(2) + '%'}
-        </ProgressPercentageNumber>
       </ProgressPercentageBar>
+      <ProgressPercentageNumber>
+        {((correctlyValidatedFields / requiredFields) * 100).toFixed(2) + '%'}
+      </ProgressPercentageNumber>
     </StyledProgressBar>
   )
 }
