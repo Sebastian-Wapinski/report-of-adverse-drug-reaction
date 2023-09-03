@@ -6,7 +6,7 @@ export const formClassificationData = [
   {
     id: uuid(),
     name: 'sideEffectsSeverityType',
-    label: 'CHECK SEVERITY OF SIDE EFFECTS:',
+    label: 'CHECK SEVERITY OF SERIOUS SIDE EFFECTS:',
     checkboxBtn: [
       {
         checkboxId: 'isDecease',

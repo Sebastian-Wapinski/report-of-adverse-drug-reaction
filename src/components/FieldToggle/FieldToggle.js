@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldToggle } from './FieldToggle.styled'
+import { StyledFieldToggle, StyleInput } from './FieldToggle.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
 import Label from '../Label'
-import Input from '../Input'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldToggle = (props) => {
@@ -32,7 +31,7 @@ export const FieldToggle = (props) => {
       >
         {label}
       </Label>
-      <Input
+      <StyleInput
         type={'checkbox'}
         id={id}
         checked={stateValue}

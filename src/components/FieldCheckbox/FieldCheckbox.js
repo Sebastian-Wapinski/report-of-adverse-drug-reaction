@@ -1,12 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldCheckbox } from './FieldCheckbox.styled'
-
-import Label from '../Label'
-import Input from '../Input'
-import Text from '../Text'
-import CheckboxContainer from '../CheckboxContainer'
+import { StyledFieldCheckbox, CheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer } from './FieldCheckbox.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
@@ -19,7 +14,7 @@ export const FieldCheckbox = (props) => {
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { label, checkboxBtn = [] } = fieldData
+  const { label, checkboxBtn = [], isRequired } = fieldData
 
   const { contextForm } = React.useContext(ChangeFormContext)
   const formContext = React.useContext(contextForm)
@@ -28,33 +23,37 @@ export const FieldCheckbox = (props) => {
     <StyledFieldCheckbox
       {...otherProps}
     >
-      <Text
-        text={label}
-      />
-      {
+      <StyledLabel
+        isRequired={isRequired}
+      >
+        {label}
+      </StyledLabel>
+      <StyledCheckboxesContainer>
+        {
           checkboxBtn.map(checker => {
             const { checkboxId, checkboxName, checkboxLabel } = checker
             const { [checkboxName]: stateChecked } = formContext
             return (
-              <CheckboxContainer
+              <StyledCheckboxContainer
                 key={checkboxId}
               >
-                <Input
+                <StyledInput
                   type={'checkbox'}
                   id={checkboxId}
                   name={checkboxName}
                   checked={stateChecked}
                   disabled={Object.keys(isDisabled).includes(checkboxName) ? isDisabled[checkboxName].isDisabledState : false}
                 />
-                <Label
+                <CheckboxLabel
                   htmlFor={checkboxId}
                 >
                   {checkboxLabel}
-                </Label>
-              </CheckboxContainer>
+                </CheckboxLabel>
+              </StyledCheckboxContainer>
             )
           })
       }
+      </StyledCheckboxesContainer>
     </StyledFieldCheckbox>
   )
 }

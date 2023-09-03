@@ -22,7 +22,7 @@ height: 100%;
 width: 0;
 border: none;
 border-radius: 50px;
-background: #C4FFE6;
+background: ${props => props.theme.secondaryBackground};
 box-shadow: inset 17px 17px 34px #8bb5a3, inset -17px -17px 34px #fdffff;
 transition: 0.4s ease-in-out;
 ${

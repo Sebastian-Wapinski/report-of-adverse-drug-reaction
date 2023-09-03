@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
+import { Label } from '../Label'
 
 const DefaultStyledFieldText = styled.div`
-display: flex;
-justify-content: space-between;
+display: grid;
+grid-template-columns: 3fr 5fr;
+grid-template-rows: auto auto;
+grid-template-areas: 
+"label input"
+"error error";
 margin: 0.6rem 0;
 `
 
@@ -12,14 +17,20 @@ const StyledFieldText = styled(DefaultStyledFieldText)(
 )
 
 const StyledInput = styled(Input)`
-  width: 60%;
+  display: grid;
+  justify-self: flex-end;
+  width: 100%;
   padding: 0.5rem;
   background-color: ${props => props.theme.primaryBackground};
   border: none;
   border-radius: 30px;
-  background: linear-gradient(145deg, #b7ffe9, #9ae6c4);
-  box-shadow:  12px 12px 24px #79b59b, -12px -12px 24px #ddffff;
+  background: #ABFFDA;
+  box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
   outline: none;
+  grid-area: input;
 `
 
-export { StyledFieldText, StyledInput }
+const StyledLabel = styled(Label)`
+`
+
+export { StyledFieldText, StyledInput, StyledLabel }

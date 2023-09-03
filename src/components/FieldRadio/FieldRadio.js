@@ -1,14 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldRadio } from './FieldRadio.styled'
+import { StyledFieldRadio, StyledInput, StyledLabel, StyledContainer } from './FieldRadio.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import Label from '../Label'
-import Input from '../Input'
-import Text from '../Text'
 import RadioContainer from '../RadioContainer'
 
 export const FieldRadio = (props) => {
@@ -27,11 +25,13 @@ export const FieldRadio = (props) => {
     <StyledFieldRadio
       {...otherProps}
     >
-      <Text
-        text={label}
+      <Label
         isRequired={isRequired}
-      />
-      {
+      >
+        {label}
+      </Label>
+      <StyledContainer>
+        {
         Object.keys(fieldData).length !== 0 ?
           radioBtn.map(radioPosition => {
             const { value, radioId, radioLabel } = radioPosition
@@ -40,24 +40,25 @@ export const FieldRadio = (props) => {
               <RadioContainer
                 key={radioId}
               >
-                <Input
+                <StyledInput
                   value={value}
                   name={name}
                   type={'radio'}
                   id={radioId}
                   checked={value === stateValue}
                 />
-                <Label
+                <StyledLabel
                   htmlFor={radioId}
                 >
                   {radioLabel}
-                </Label>
+                </StyledLabel>
               </RadioContainer>
             )
           })
           :
           null
       }
+      </StyledContainer>
     </StyledFieldRadio>
   )
 }

@@ -55,7 +55,9 @@ export const formPatientData = [
     isRequired: true,
     textErrorMessage: 'Range is 0 - 120',
     min: 0,
-    max: 120,
+    max: 90,
+    minToValidate: 0,
+    maxToValidate: 120,
     type: 'range',
     step: 1
   },
@@ -65,8 +67,10 @@ export const formPatientData = [
     label: 'HEIGHT:',
     textErrorMessage: 'Range is 0 - 251cm',
     isRequired: true,
-    min: 0,
-    max: 251,
+    min: 130,
+    max: 200,
+    minToValidate: 0,
+    maxToValidate: 251,
     type: 'range',
     unit: 'cm',
     step: 1
@@ -78,8 +82,11 @@ export const formPatientData = [
     textErrorMessage: 'Range is 0 - 610kg',
     isRequired: true,
     type: 'range',
-    min: 0,
-    max: 610,
+    min: 40,
+    max: 120,
+    minToValidate: 0,
+    maxToValidate: 610,
+    step: 1,
     unit: 'kg'
   }
 ]

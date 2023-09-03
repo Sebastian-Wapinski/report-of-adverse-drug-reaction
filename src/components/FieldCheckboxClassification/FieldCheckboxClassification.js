@@ -20,7 +20,7 @@ export const FieldCheckboxClassification = (props) => {
       <FieldCheckbox
         isDisabled={{
           isFetalInjury: {
-            isDisabledState: !sideEffectsIsPregnant
+            isDisabledState: (!sideEffectsSeverity ? true : !sideEffectsIsPregnant)
           },
           isDecease: {
             isDisabledState: !sideEffectsSeverity

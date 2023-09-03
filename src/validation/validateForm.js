@@ -9,8 +9,8 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
     minAmountOfCharacters,
     amountOfCharacters,
     regExp,
-    min,
-    max,
+    minToValidate,
+    maxToValidate,
     list
   } = formFieldData
 
@@ -46,15 +46,15 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
           )
           &&
           (
-            min === 0 ?
-              value >= min
+            minToValidate === 0 ?
+              value >= minToValidate
               :
               true
           )
           &&
           (
-            max ?
-              value <= max
+            maxToValidate ?
+              value <= maxToValidate
               :
               true
           )

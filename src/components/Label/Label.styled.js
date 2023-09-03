@@ -4,6 +4,7 @@ const DefaultStyledLabel = styled.label`
 color: ${
   props => props.theme.primaryTextColor
 };
+grid-area: label;
 font-weight: 500;
 ${
   props => props.required === true && css`

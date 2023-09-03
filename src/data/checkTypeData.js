@@ -3,7 +3,6 @@ import React from 'react'
 import { v4 as uuid } from 'uuid'
 
 import { FieldText } from '../components/FieldText'
-import { FieldNumber } from '../components/FieldNumber'
 import { FieldRange } from '../components/FieldRange'
 import { FieldRadio } from '../components/FieldRadio'
 import { FieldTextarea } from '../components/FieldTextarea'
@@ -16,10 +15,6 @@ export const checkTypeData = [
   {
     checkType: 'text',
     useField: <FieldText key={uuid()}/>
-  },
-  {
-    checkType: 'number',
-    useField: <FieldNumber key={uuid()}/>
   },
   {
     checkType: 'range',

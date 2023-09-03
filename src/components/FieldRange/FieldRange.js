@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldRange } from './FieldRange.styled'
+import { StyledFieldRange, StyledInputRange, StyledInputNumber } from './FieldRange.styled'
 
 import Label from '../Label'
-import Input from '../Input'
 import Unit from '../Unit'
 import ErrorMessage from '../ErrorMessage'
 
@@ -18,11 +17,10 @@ export const FieldRange = (props) => {
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { id, name, label, min = 0, max = 0, unit = '', step = 1, isRequired, textErrorMessage } = fieldData
+  const { id, name, label, min = 0, max = 0, unit = '', step = 1, isRequired, textErrorMessage, minToValidate, maxToValidate } = fieldData
 
   const { contextForm } = React.useContext(ChangeFormContext)
   const formContext = React.useContext(contextForm)
-  // const { [name]: stateValue } = formContext
 
   return (
     <StyledFieldRange
@@ -34,18 +32,19 @@ export const FieldRange = (props) => {
       >
         {label}
       </Label>
-      <Input
+      <StyledInputRange
         type={'range'}
         min={min}
         max={max}
         name={name}
         step={step}
+        value={formContext[name]}
       />
-      <Input
+      <StyledInputNumber
         id={id}
         type={'number'}
-        min={min}
-        max={max}
+        min={minToValidate}
+        max={maxToValidate}
         name={name}
         step={step}
       />
