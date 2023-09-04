@@ -66,6 +66,7 @@ cursor: pointer;
   font-size: 1.4rem;
   text-align: center;
   cursor: not-allowed;
+  background: ${props => props.theme.primaryBackground};
 }
 `
 

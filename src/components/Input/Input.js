@@ -36,6 +36,7 @@ export const Input = (props) => {
         onChange={handleChangeData}
         value={formContext[name]}
         name={name}
+        autoComplete={'one-time-code'}
         {...otherProps}
       />
       {
