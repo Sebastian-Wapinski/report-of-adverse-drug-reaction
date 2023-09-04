@@ -71,6 +71,13 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
           &&
           (
             currentDay ?
+                (Number(value.slice(6, 10)) < currentYear)
+               ||
+              (
+                Number(value.slice(3, 5)) < currentMonth
+                && Number(value.slice(6, 10)) <= currentYear
+              )
+              ||
                 (Number(value.slice(0, 2)) <= currentDay
               && Number(value.slice(3, 5)) <= currentMonth
               && Number(value.slice(6, 10)) <= currentYear)

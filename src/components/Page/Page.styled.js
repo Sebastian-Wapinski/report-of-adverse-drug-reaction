@@ -6,7 +6,7 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 width: 100%;
-min-height: 50%;
+min-height: 55%;
 `
 
 const StyledPage = styled(DefaultStyledPage)(

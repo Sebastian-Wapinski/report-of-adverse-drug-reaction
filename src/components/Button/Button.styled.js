@@ -21,9 +21,6 @@ transition: all 0.3s ease-in-out;
 
 &:active {
   cursor: pointer;
-  /* border-radius: 50px;
-  background: linear-gradient(145deg, #9ae6c4, #b7ffe9);
-  box-shadow:  8px 8px 10px #5c8a76, -8px -8px 10px #faffff; */
   border-radius: 50px;
   background: #ABFFDA;
   box-shadow: inset 20px 20px 36px #89ccae, inset -20px -20px 36px #cdffff;

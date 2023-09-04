@@ -26,6 +26,12 @@ export const Input = (props) => {
       return
     }
 
+    if (type === 'range' || type === 'number') {
+      formContext.dispatch({ name, value: Number(e.target.value) })
+      validateForm(e.target, formContext.dispatch, fieldData)
+      return
+    }
+
     formContext.dispatch(e.target)
     validateForm(e.target, formContext.dispatch, fieldData)
   }

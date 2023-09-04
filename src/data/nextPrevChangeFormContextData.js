@@ -1,5 +1,8 @@
+import { FormClassificationContext } from '../contexts/FormClassificationContext'
 import { FormMedicContext } from '../contexts/FormMedicContext'
+import { FormMedicinesContext } from '../contexts/FormMedicinesContext'
 import { FormPatientContext } from '../contexts/FormPatientContext'
+import { FormSideEffectsContext } from '../contexts/FormSideEffectsContext'
 
 export const prevContextArr = [
   {
@@ -12,37 +15,37 @@ export const prevContextArr = [
   },
   {
     pageContextSide: 3,
-    prevContext: FormMedicContext
+    prevContext: FormPatientContext
   },
   {
     pageContextSide: 4,
-    prevContext: FormMedicContext
+    prevContext: FormSideEffectsContext
   },
   {
     pageContextSide: 5,
-    prevContext: FormMedicContext
+    prevContext: FormClassificationContext
   }
 ]
 
 export const nextContextArr = [
   {
     pageContextSide: 1,
-    prevContext: FormPatientContext
+    nextContext: FormPatientContext
   },
   {
     pageContextSide: 2,
-    prevContext: FormPatientContext
+    nextContext: FormPatientContext
   },
   {
     pageContextSide: 3,
-    prevContext: FormPatientContext
+    nextContext: FormSideEffectsContext
   },
   {
     pageContextSide: 4,
-    prevContext: FormPatientContext
+    nextContext: FormClassificationContext
   },
   {
     pageContextSide: 5,
-    prevContext: FormPatientContext
+    nextContext: FormMedicinesContext
   }
 ]
