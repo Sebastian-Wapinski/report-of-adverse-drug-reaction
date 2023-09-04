@@ -11,6 +11,9 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
     regExp,
     minToValidate,
     maxToValidate,
+    currentDay,
+    currentMonth,
+    currentYear,
     list
   } = formFieldData
 
@@ -62,6 +65,15 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
           (
             listElemArr ?
               listElemArr.includes(innerText)
+              :
+              true
+          )
+          &&
+          (
+            currentDay ?
+                (Number(value.slice(0, 2)) <= currentDay
+              && Number(value.slice(3, 5)) <= currentMonth
+              && Number(value.slice(6, 10)) <= currentYear)
               :
               true
           )
