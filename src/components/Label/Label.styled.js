@@ -6,6 +6,7 @@ color: ${
 };
 grid-area: label;
 font-weight: 500;
+cursor: pointer;
 ${
   props => props.required === true && css`
   &::before {

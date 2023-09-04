@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList } from './FieldList.styled'
-
-import { Label } from '../Label'
+import { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList, StyledLabel } from './FieldList.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
@@ -28,10 +26,6 @@ export const FieldList = (props) => {
     setActiveList(!activeList)
   }
 
-  // const handleClickInside = (e) => {
-  //   e.stopPropagation()
-  // }
-
   const handleClickOutside = () => {
     setActiveList(false)
   }
@@ -46,20 +40,19 @@ export const FieldList = (props) => {
     <>
       <StyleDivToggleFalseList
         onClick={activeList ? handleClickOutside : null}
-        $activeList={!!activeList}
-      >
-      </StyleDivToggleFalseList>
+        $activeList={activeList}
+      />
       <StyledFieldList
-        $activeList={!!activeList}
+        $activeList={activeList}
         {...otherProps}
       >
-        <Label
+        <StyledLabel
           htmlFor={id}
           isRequired={isRequired}
           onClick={toggleList}
         >
           {label}
-        </Label>
+        </StyledLabel>
         <InputListContainer>
           <StyledInput
             id={id}

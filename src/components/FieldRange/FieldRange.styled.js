@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
+import { Label } from '../Label'
 
 const DefaultStyledFieldRange = styled.div`
 display: grid;
@@ -34,6 +35,7 @@ const StyledInputRange = styled(Input).attrs(
   border-radius: 50px;
   height: 1rem;
   box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
+  cursor: pointer;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -68,4 +70,8 @@ const StyledInputNumber = styled(Input)`
   grid-area: inputNumber;
 `
 
-export { StyledFieldRange, StyledInputRange, StyledInputNumber }
+const StaledLabel = styled(Label)`
+  cursor: default;
+`
+
+export { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel }

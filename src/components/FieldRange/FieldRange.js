@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldRange, StyledInputRange, StyledInputNumber } from './FieldRange.styled'
+import { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel } from './FieldRange.styled'
 
-import Label from '../Label'
 import Unit from '../Unit'
 import ErrorMessage from '../ErrorMessage'
 
@@ -26,12 +25,12 @@ export const FieldRange = (props) => {
     <StyledFieldRange
       {...otherProps}
     >
-      <Label
+      <StaledLabel
         htmlFor={id}
         isRequired={isRequired}
       >
         {label}
-      </Label>
+      </StaledLabel>
       <StyledInputRange
         type={'range'}
         min={min}

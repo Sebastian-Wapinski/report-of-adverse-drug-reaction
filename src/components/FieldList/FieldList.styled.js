@@ -1,8 +1,15 @@
 import styled, { css } from 'styled-components'
 import { Input } from '../Input'
+import { Label } from '../Label'
 
 const DefaultStyledFieldList = styled.div`
-
+padding-bottom: 6rem ;
+display: grid;
+grid-template-rows: 3rem;
+grid-template-areas: 
+'label'
+'inputListContainer';
+box-sizing: border-box;
 `
 
 const StyledFieldList = styled(DefaultStyledFieldList)(
@@ -13,28 +20,52 @@ const StyledFieldList = styled(DefaultStyledFieldList)(
     `
 )
 
+const StyledLabel = styled(Label)`
+padding-top: 1rem;
+`
+
 const ListContainer = styled.ul`
 display: none;
 position: absolute;
-top: 20px;
+width: 100%;
+top: 2rem;
 left: 0;
-border: 1px solid black;
 padding: 0;
 margin: 0;
+z-index: 2;
 `
 
 const ListPosition = styled.li`
-border: 1px solid black;
-background-color: white;
+border: none;
+border-radius: 20px;
+background: linear-gradient(to right, ${props => props.theme.thirdBackground} 80%, ${props => props.theme.primaryBackground});
+box-shadow:  6px 6px 10px #76b096, -6px -6px 10px #e0ffff;
+padding: 0.3rem 1rem;
+margin: 0.7rem 0;
+box-sizing: border-box;
+width: 100%;
 list-style: none;
+cursor: pointer;
+color: ${props => props.theme.primaryBackground};
 `
 
 const StyledInput = styled(Input)`
-
+  display: grid;
+  justify-self: flex-end;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: ${props => props.theme.primaryBackground};
+  border: none;
+  border-radius: 30px;
+  background: #ABFFDA;
+  box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
+  outline: none;
+  box-sizing: border-box;
 `
 
 const InputListContainer = styled.span`
 position: relative;
+grid-area: inputListContainer;
 `
 
 const StyleDivToggleFalseList = styled.div`
@@ -49,4 +80,4 @@ const StyleDivToggleFalseList = styled.div`
   }
 `
 
-export { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList }
+export { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList, StyledLabel }

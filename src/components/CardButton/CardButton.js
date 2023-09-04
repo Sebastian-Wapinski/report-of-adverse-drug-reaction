@@ -25,14 +25,22 @@ export const CardButton = (props) => {
   const { setContextForm } = React.useContext(ChangeFormContext)
 
   const setCurrentPage = React.useCallback(() => {
-    if (pageSide === pageNumber) return
+    if (pageSide === pageNumber) {
+      return
+    }
     setPageSide(pageNumber)
     setContextForm(contextForm)
-  }, [contextForm, pageNumber, pageSide, setContextForm, setPageSide])
+  }, [pageSide, pageNumber, setPageSide, setContextForm, contextForm])
+
+  let isActive = false
+  if (pageSide === pageNumber) {
+    isActive = true
+  }
 
   return (
     <StyledCardButton
       onClick={setCurrentPage}
+      isActive={isActive}
       {...otherProps}
     >
       <FormNumber

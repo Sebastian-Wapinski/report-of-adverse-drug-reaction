@@ -34,6 +34,7 @@ ${
 
 const ProgressPercentageNumber = styled.div`
 position: absolute;
+z-index: 1;
 top: 20%;
 left: 45%;
 `

@@ -23,6 +23,7 @@ border-radius: 20px;
 background: ${props => props.theme.primaryBackground};
 box-shadow:  6px 6px 10px #76b096, -6px -6px 10px #e0ffff;
 transition: all 0.3s ease-in-out;
+cursor: pointer;
 
 &:checked {
   background-color: ${props => props.theme.thirdBackground};

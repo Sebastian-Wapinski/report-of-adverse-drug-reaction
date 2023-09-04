@@ -21,7 +21,7 @@ grid-area: checkboxesContainer;
 `
 
 const StyledLabel = styled(Label)`
-
+cursor: default;
 `
 
 const StyledCheckboxContainer = styled.div`
@@ -40,6 +40,7 @@ appearance: none;
 -webkit-appearance: none;
 -moz-appearance: none;
 position: relative;
+cursor: pointer;
 
 &:before {
   position: absolute;
@@ -64,6 +65,7 @@ position: relative;
   content: '✗';
   font-size: 1.4rem;
   text-align: center;
+  cursor: not-allowed;
 }
 `
 

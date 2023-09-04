@@ -32,16 +32,22 @@ appearance: none;
   border-radius: 3px;
   background: ${props => props.theme.primaryBackground};
   box-shadow:  6px 6px 10px #76b096, -6px -6px 10px #e0ffff;
+  cursor: pointer;
 
   transition: all 0.3s ease;
 }
 
 &:checked:before {
   background-color: ${props => props.theme.thirdBackground};
+  cursor: not-allowed;
 }
 `
 
 const StyledLabel = styled(Label)`
+cursor: default;
+`
+
+const StyledRadioLabel = styled(Label)`
 grid-area: labelRadio;
 padding-left: 0.3rem;
 `
@@ -50,4 +56,4 @@ const StyledContainer = styled.div`
 grid-area: container;
 `
 
-export { StyledFieldRadio, StyledInput, StyledLabel, StyledContainer }
+export { StyledFieldRadio, StyledInput, StyledLabel, StyledContainer, StyledRadioLabel }
