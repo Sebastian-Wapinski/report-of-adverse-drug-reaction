@@ -18,7 +18,7 @@ export const FieldList = (props) => {
 
   const { contextForm } = React.useContext(ChangeFormContext)
   const formContext = React.useContext(contextForm)
-  const { dispatch } = formContext
+  const { dispatch, result } = formContext
 
   const [activeList, setActiveList] = React.useState(false)
 
@@ -62,17 +62,24 @@ export const FieldList = (props) => {
           />
           <ListContainer>
             {
-          list.map(listPosition => {
-            const { id, resultType } = listPosition
-            return (
-              <ListPosition
-                key={id}
-                onClick={changeState}
-              >
-                {resultType}
-              </ListPosition>
-            )
-          })
+          list
+            .filter(listPosition => {
+              const upperResult = result.toUpperCase()
+              const upperListPositionResultType = listPosition.resultType.toUpperCase().slice(0, upperResult.length)
+
+              return upperListPositionResultType.includes(upperResult)
+            })
+            .map(listPosition => {
+              const { id, resultType } = listPosition
+              return (
+                <ListPosition
+                  key={id}
+                  onClick={changeState}
+                >
+                  {resultType}
+                </ListPosition>
+              )
+            })
         }
           </ListContainer>
         </InputListContainer>
