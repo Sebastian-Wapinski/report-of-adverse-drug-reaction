@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
+import { Label } from '../Label'
 
 const DefaultStyledFieldToggle = styled.div`
 padding: 0.5rem 0;
@@ -48,4 +49,8 @@ cursor: pointer;
 }
 `
 
-export { StyledFieldToggle, StyleInput }
+const StyledLabel = styled(Label)`
+
+`
+
+export { StyledFieldToggle, StyleInput, StyledLabel }

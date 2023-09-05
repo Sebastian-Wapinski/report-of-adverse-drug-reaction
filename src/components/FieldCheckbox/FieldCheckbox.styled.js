@@ -70,10 +70,10 @@ cursor: pointer;
 }
 `
 
-const CheckboxLabel = styled(Label)`
+const StyledCheckboxLabel = styled(Label)`
 grid-area: checkboxLabel;
 display: grid;
 align-self: center;
 `
 
-export { StyledFieldCheckbox, CheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer }
+export { StyledFieldCheckbox, StyledCheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer }

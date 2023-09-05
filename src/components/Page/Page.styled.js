@@ -13,4 +13,9 @@ const StyledPage = styled(DefaultStyledPage)(
   props => props.style
 )
 
-export { StyledPage }
+const StyledFormContainer = styled.form`
+width: 40%;
+padding: 2rem 0;
+`
+
+export { StyledPage, StyledFormContainer }

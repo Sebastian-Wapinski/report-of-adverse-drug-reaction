@@ -48,9 +48,7 @@ export const Input = (props) => {
       {
         type === 'radio' ||
           type === 'range' ||
-            type === 'number' ||
-              type === 'checkbox' ||
-                type === 'text' ?
+            type === 'number' ?
           null
           :
             (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?

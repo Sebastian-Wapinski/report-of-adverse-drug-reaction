@@ -9,7 +9,6 @@ import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
 export const FormField = (props) => {
   const {
-    children,
     fieldData,
     ...otherProps
   } = props
@@ -48,7 +47,6 @@ export const FormField = (props) => {
 }
 
 FormField.propTypes = {
-  children: PropTypes.node,
   fieldData: PropTypes.object
 }
 

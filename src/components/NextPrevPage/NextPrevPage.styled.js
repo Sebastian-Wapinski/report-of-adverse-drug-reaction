@@ -35,10 +35,10 @@ ${
 }
 `
 
-const InfoMessage = styled.div`
+const StyledInfoMessage = styled.div`
 font-size: 1.5rem;
 font-weight: 500;
 color: ${props => props.theme.primaryTextColor}
 `
 
-export { StyledNextPrevPage, StyledSendFormInfo, InfoMessage }
+export { StyledNextPrevPage, StyledSendFormInfo, StyledInfoMessage }

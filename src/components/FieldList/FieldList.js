@@ -1,15 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList, StyledLabel } from './FieldList.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+
 import { validateForm } from '../../validation/validateForm'
 
 export const FieldList = (props) => {
   const {
-    children,
     ...otherProps
   } = props
 
@@ -86,10 +85,6 @@ export const FieldList = (props) => {
       </StyledFieldList>
     </>
   )
-}
-
-FieldList.propTypes = {
-  children: PropTypes.node
 }
 
 export default FieldList

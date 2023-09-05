@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledNextPrevPage, StyledSendFormInfo, InfoMessage } from './NextPrevPage.styled'
+import { StyledNextPrevPage, StyledSendFormInfo, StyledInfoMessage } from './NextPrevPage.styled'
 
 import Button from '../Button'
 
@@ -150,16 +150,16 @@ export const NextPrevPage = (props) => {
       <StyledSendFormInfo
         $isSubmit={clickedSubmit}
       >
-        <InfoMessage>
+        <StyledInfoMessage>
           FORM SENT PROPERLY
-        </InfoMessage>
+        </StyledInfoMessage>
       </StyledSendFormInfo>
       <StyledSendFormInfo
         $isSubmit={clickedWithoutSubmit}
       >
-        <InfoMessage>
+        <StyledInfoMessage>
           PROGRESS BAR REQUIRE 100%
-        </InfoMessage>
+        </StyledInfoMessage>
       </StyledSendFormInfo>
     </StyledNextPrevPage>
   )

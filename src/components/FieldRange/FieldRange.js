@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel } from './FieldRange.styled'
 
@@ -11,7 +10,6 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldRange = (props) => {
   const {
-    children,
     ...otherProps
   } = props
 
@@ -56,10 +54,6 @@ export const FieldRange = (props) => {
         }
     </StyledFieldRange>
   )
-}
-
-FieldRange.propTypes = {
-  children: PropTypes.node
 }
 
 export default FieldRange

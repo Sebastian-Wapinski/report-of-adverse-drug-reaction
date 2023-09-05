@@ -1,13 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledFieldCheckboxClassification } from './FieldCheckboxClassification.styled'
+
 import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
-import FieldCheckbox from '../FieldCheckbox/FieldCheckbox'
+
+import FieldCheckbox from '../FieldCheckbox'
 
 export const FieldCheckboxClassification = (props) => {
   const {
-    children,
     ...otherProps
   } = props
 
@@ -38,10 +38,6 @@ export const FieldCheckboxClassification = (props) => {
       />
     </StyledFieldCheckboxClassification>
   )
-}
-
-FieldCheckboxClassification.propTypes = {
-  children: PropTypes.node
 }
 
 export default FieldCheckboxClassification

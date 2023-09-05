@@ -1,18 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { StyledFieldToggle, StyleInput } from './FieldToggle.styled'
+import { StyledFieldToggle, StyleInput, StyledLabel } from './FieldToggle.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
-import Label from '../Label'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { FormClassificationContext } from '../../contexts/FormClassificationContext'
 import { formClassificationData } from '../../data/formClassificationData'
 
 export const FieldToggle = (props) => {
   const {
-    children,
     ...otherProps
   } = props
 
@@ -54,12 +51,12 @@ export const FieldToggle = (props) => {
     <StyledFieldToggle
       {...otherProps}
     >
-      <Label
+      <StyledLabel
         htmlFor={id}
         isRequired={isRequired}
       >
         {label}
-      </Label>
+      </StyledLabel>
       <StyleInput
         type={'checkbox'}
         id={id}
@@ -68,10 +65,6 @@ export const FieldToggle = (props) => {
       />
     </StyledFieldToggle>
   )
-}
-
-FieldToggle.propTypes = {
-  children: PropTypes.node
 }
 
 export default FieldToggle

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledFieldTextarea, Textarea } from './FieldTextarea.styled'
 
@@ -12,7 +11,6 @@ import { validateForm } from '../../validation/validateForm'
 
 export const FieldTextarea = (props) => {
   const {
-    children,
     ...otherProps
   } = props
 
@@ -54,10 +52,6 @@ export const FieldTextarea = (props) => {
         }
     </StyledFieldTextarea>
   )
-}
-
-FieldTextarea.propTypes = {
-  children: PropTypes.node
 }
 
 export default FieldTextarea

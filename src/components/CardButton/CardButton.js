@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FormNumber from '../FormNumber'
+import { StyledCardButton, StyledFormNumber } from './CardButton.styled'
+
 import Text from '../Text'
 
 import { ChangePageContext } from '../../contexts/ChangePageContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
-
-import { StyledCardButton } from './CardButton.styled'
 
 export const CardButton = (props) => {
   const {
@@ -43,9 +42,9 @@ export const CardButton = (props) => {
       isActive={isActive}
       {...otherProps}
     >
-      <FormNumber
-        pageNumber={pageNumber}
-      />
+      <StyledFormNumber>
+        {pageNumber}
+      </StyledFormNumber>
       <Text
         text={description}
       />

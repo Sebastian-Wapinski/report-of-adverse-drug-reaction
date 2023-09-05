@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledFieldRadio, StyledInput, StyledLabel, StyledContainer, StyledRadioLabel } from './FieldRadio.styled'
 
@@ -10,7 +9,6 @@ import RadioContainer from '../RadioContainer'
 
 export const FieldRadio = (props) => {
   const {
-    children,
     ...otherProps
   } = props
 
@@ -60,10 +58,6 @@ export const FieldRadio = (props) => {
       </StyledContainer>
     </StyledFieldRadio>
   )
-}
-
-FieldRadio.propTypes = {
-  children: PropTypes.node
 }
 
 export default FieldRadio

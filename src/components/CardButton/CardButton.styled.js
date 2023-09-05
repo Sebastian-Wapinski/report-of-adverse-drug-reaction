@@ -9,4 +9,8 @@ const StyledCardButton = styled(DefaultStyledCardButton)(
   props => props.style
 )
 
-export { StyledCardButton }
+const StyledFormNumber = styled.p`
+
+`
+
+export { StyledCardButton, StyledFormNumber }

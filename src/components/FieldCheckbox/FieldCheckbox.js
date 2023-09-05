@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledFieldCheckbox, CheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer } from './FieldCheckbox.styled'
+import { StyledFieldCheckbox, StyledCheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer } from './FieldCheckbox.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldCheckbox = (props) => {
   const {
-    children,
     isDisabled,
     ...otherProps
   } = props
@@ -44,11 +43,11 @@ export const FieldCheckbox = (props) => {
                   checked={stateChecked}
                   disabled={Object.keys(isDisabled).includes(checkboxName) ? isDisabled[checkboxName].isDisabledState : false}
                 />
-                <CheckboxLabel
+                <StyledCheckboxLabel
                   htmlFor={checkboxId}
                 >
                   {checkboxLabel}
-                </CheckboxLabel>
+                </StyledCheckboxLabel>
               </StyledCheckboxContainer>
             )
           })
@@ -59,7 +58,6 @@ export const FieldCheckbox = (props) => {
 }
 
 FieldCheckbox.propTypes = {
-  children: PropTypes.node,
   isDisabled: PropTypes.object
 }
 
