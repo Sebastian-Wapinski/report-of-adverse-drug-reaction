@@ -5,7 +5,7 @@ import { StyledInput } from './Input.styled'
 import { validateForm } from '../../validation/validateForm'
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
-import { ErrorMessage } from '../ErrorMessage'
+import { setErrorMessageConditionalExpression } from '../../helper/helper'
 
 export const Input = (props) => {
   const {
@@ -20,7 +20,7 @@ export const Input = (props) => {
   const { contextForm } = React.useContext(ChangeFormContext)
   const formContext = React.useContext(contextForm)
 
-  const handleChangeData = (e) => {
+  const handleChangeData = React.useCallback((e) => {
     if (type === 'toggle' || type === 'checkboxClassification' || type === 'checkbox') {
       formContext.dispatch({ name, value: e.target.checked })
       return
@@ -34,7 +34,7 @@ export const Input = (props) => {
 
     formContext.dispatch(e.target)
     validateForm(e.target, formContext.dispatch, fieldData)
-  }
+  }, [fieldData, formContext, name, type])
 
   return (
     <>
@@ -51,10 +51,7 @@ export const Input = (props) => {
             type === 'number' ?
           null
           :
-            (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?
-              <ErrorMessage>{ errorMessage }</ErrorMessage>
-              :
-              null
+          setErrorMessageConditionalExpression(formContext[name + 'IsValid'], formContext[name], errorMessage, 'string')
     }
     </>
   )

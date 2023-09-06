@@ -16,6 +16,7 @@ import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
 import { FormClassificationContext } from '../../contexts/FormClassificationContext'
 import { FormMedicinesContext } from '../../contexts/FormMedicinesContext'
 import { ProgressContext } from '../../contexts/ProgressContext'
+import { clearContextsValues, createFormToSendOnServer } from '../../helper/helper'
 
 export const NextPrevPage = (props) => {
   const {
@@ -61,22 +62,9 @@ export const NextPrevPage = (props) => {
   const formClassificationContext = React.useContext(FormClassificationContext)
   const formMedicinesContext = React.useContext(FormMedicinesContext)
 
-  const clearForms = (...context) => {
-    context.forEach(elem => {
-      for (const key in elem) {
-        const { dispatch } = elem
-        if (typeof elem[key] === 'string' && !key.includes('dispatch')) {
-          dispatch({ name: key, value: '' })
-        }
-        if (typeof elem[key] === 'number' && !key.includes('dispatch')) {
-          dispatch({ name: key, value: 0 })
-        }
-        if (typeof elem[key] === 'boolean' && !key.includes('dispatch')) {
-          dispatch({ name: key, value: false })
-        }
-      }
-    })
-  }
+  const clearForms = React.useCallback((...contexts) => {
+    clearContextsValues(contexts)
+  }, [])
 
   const handleSubmit = React.useCallback(() => {
     if (requiredFields !== correctlyValidatedFields) {
@@ -93,13 +81,7 @@ export const NextPrevPage = (props) => {
       ...formMedicinesContext
     }
 
-    const formToSendOnServer = {}
-
-    for (const key in rawForm) {
-      if (!key.includes('IsValid') && !key.includes('dispatch')) {
-        formToSendOnServer[key] = rawForm[key]
-      }
-    }
+    const formToSendOnServer = createFormToSendOnServer(rawForm)
 
     console.log(formToSendOnServer)
 
@@ -110,7 +92,7 @@ export const NextPrevPage = (props) => {
       formClassificationContext,
       formMedicinesContext
     )
-  }, [correctlyValidatedFields, formClassificationContext, formMedicContext, formMedicinesContext, formPatientContext, formSideEffectsContext, requiredFields])
+  }, [clearForms, correctlyValidatedFields, formClassificationContext, formMedicContext, formMedicinesContext, formPatientContext, formSideEffectsContext, requiredFields])
 
   const handleTimeout = () => {
     setTimeout(() => {

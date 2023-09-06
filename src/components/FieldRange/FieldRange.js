@@ -3,10 +3,10 @@ import React from 'react'
 import { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel } from './FieldRange.styled'
 
 import Unit from '../Unit'
-import ErrorMessage from '../ErrorMessage'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+import { setErrorMessageConditionalExpression } from '../../helper/helper'
 
 export const FieldRange = (props) => {
   const {
@@ -47,11 +47,8 @@ export const FieldRange = (props) => {
       />
       <Unit>{unit}</Unit>
       {
-          (formContext[name + 'IsValid'] === false) && (formContext[name] !== 0) ?
-            <ErrorMessage>{ textErrorMessage }</ErrorMessage>
-            :
-            null
-        }
+        setErrorMessageConditionalExpression(formContext[name + 'IsValid'], formContext[name], textErrorMessage, 'number')
+      }
     </StyledFieldRange>
   )
 }

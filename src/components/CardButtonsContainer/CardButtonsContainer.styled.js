@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const DefaultStyledCardButtonsContainer = styled.div`
+const DefaultStyledCardButtonsContainer = styled.nav`
 display: flex;
 justify-content: space-between;
 width: 60%;

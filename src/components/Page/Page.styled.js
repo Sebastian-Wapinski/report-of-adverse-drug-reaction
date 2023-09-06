@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const DefaultStyledPage = styled.div`
+const DefaultStyledPage = styled.article`
 display: flex;
 justify-content: center;
 align-items: center;

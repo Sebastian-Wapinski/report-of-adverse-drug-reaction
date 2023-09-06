@@ -6,8 +6,8 @@ import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
 import Label from '../Label'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
-import { ErrorMessage } from '../ErrorMessage'
 import { validateForm } from '../../validation/validateForm'
+import { setErrorMessageConditionalExpression } from '../../helper/helper'
 
 export const FieldTextarea = (props) => {
   const {
@@ -45,10 +45,7 @@ export const FieldTextarea = (props) => {
         onChange={handleOnChange}
       />
       {
-          (formContext[name + 'IsValid'] === false) && (formContext[name] !== '') ?
-            <ErrorMessage>{ textErrorMessage }</ErrorMessage>
-            :
-            null
+         setErrorMessageConditionalExpression(formContext[name + 'IsValid'], formContext[name], textErrorMessage, 'string')
         }
     </StyledFieldTextarea>
   )

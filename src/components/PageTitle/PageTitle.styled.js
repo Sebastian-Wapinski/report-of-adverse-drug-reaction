@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const DefaultStyledPageTitle = styled.div`
+const DefaultStyledPageTitle = styled.h1`
   display: flex;
   justify-content: center;
   font-weight: bold;
