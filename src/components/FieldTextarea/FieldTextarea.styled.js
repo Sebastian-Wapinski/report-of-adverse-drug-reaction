@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Label from '../Label'
 
 const DefaultStyledFieldTextarea = styled.div`
 display: grid;
@@ -27,6 +28,16 @@ const Textarea = styled.textarea`
   outline: none;
   margin-bottom: 1rem;
   grid-area: textarea;
+
+  @media (max-width: 43.75rem){
+    justify-self: center;
+  }
 `
 
-export { StyledFieldTextarea, Textarea }
+const StyledLabel = styled(Label)`
+@media (max-width: 43.75rem){
+  text-align: center;
+  }
+`
+
+export { StyledFieldTextarea, Textarea, StyledLabel }

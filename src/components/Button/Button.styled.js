@@ -40,6 +40,21 @@ ${
   }
   `
 }
+
+&:disabled {
+box-shadow: none;
+
+  &:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  }
+
+  &:active {
+  cursor: not-allowed;
+  background: linear-gradient(145deg, #b7ffe9, #9ae6c4);
+  box-shadow: none;
+  }
+}
 `
 
 const StyledButton = styled(DefaultStyledButton)(

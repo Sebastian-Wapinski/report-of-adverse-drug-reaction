@@ -18,10 +18,17 @@ const StyledFieldCheckbox = styled(DefaultStyledFieldCheckbox)(
 
 const StyledCheckboxesContainer = styled.div`
 grid-area: checkboxesContainer;
+
+@media (max-width: 43.75rem){
+  margin: 1rem 0;
+  }
 `
 
 const StyledLabel = styled(Label)`
 cursor: default;
+@media (max-width: 43.75rem){
+  text-align: center;
+  }
 `
 
 const StyledCheckboxContainer = styled.div`
@@ -31,6 +38,10 @@ grid-template-columns: 1fr 4fr;
 grid-template-rows: auto;
 grid-template-areas: 
 'input checkboxLabel';
+
+@media (max-width: 43.75rem){
+  margin: 0.6rem;
+  }
 `
 
 const StyledInput = styled(Input)`
@@ -41,6 +52,7 @@ appearance: none;
 -moz-appearance: none;
 position: relative;
 cursor: pointer;
+align-items: center;
 
 &:before {
   position: absolute;
@@ -73,7 +85,11 @@ cursor: pointer;
 const StyledCheckboxLabel = styled(Label)`
 grid-area: checkboxLabel;
 display: grid;
-align-self: center;
+align-items: center;
+
+@media (max-width: 43.75rem){
+  margin-left: 2rem;
+  }
 `
 
 export { StyledFieldCheckbox, StyledCheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer }

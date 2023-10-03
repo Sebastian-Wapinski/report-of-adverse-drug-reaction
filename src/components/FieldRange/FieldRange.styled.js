@@ -10,6 +10,16 @@ grid-template-areas:
 'label inputRange .'
 'inputNumber inputNumber unit'
 'error error error';
+
+@media (max-width: 43.75rem){
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: 2rem;
+  grid-template-areas: 
+  '. label .'
+  '. inputRange .'
+  '. inputNumber unit'
+  '. error error';
+  }
 `
 
 const StyledFieldRange = styled(DefaultStyledFieldRange)(
@@ -68,10 +78,19 @@ const StyledInputNumber = styled(Input)`
   box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
   outline: none;
   grid-area: inputNumber;
+
+  @media (max-width: 43.75rem){
+    justify-self: center;
+    margin: 1.5rem 0;
+  }
 `
 
 const StaledLabel = styled(Label)`
   cursor: default;
+
+  @media (max-width: 43.75rem){
+    text-align: center;
+  }
 `
 
 export { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel }

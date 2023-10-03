@@ -107,6 +107,7 @@ export const NextPrevPage = (props) => {
     >
       <Button
         onClick={setPreviousSide}
+        disabled={pageSide === 1}
       >
         PREVIOUS FORM
       </Button>
@@ -126,6 +127,7 @@ export const NextPrevPage = (props) => {
         }
       <Button
         onClick={setNextSide}
+        disabled={pageSide === AMOUNT_OF_ALL_PAGES}
       >
         NEXT FORM
       </Button>

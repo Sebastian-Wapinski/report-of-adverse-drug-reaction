@@ -7,6 +7,10 @@ display: grid;
 justify-content: center;
 grid-area: error;
 padding: 0.8rem;
+
+@media (max-width: 43.75rem){
+  text-align: center;
+  }
 `
 
 const StyledErrorMessage = styled(DefaultStyledErrorMessage)(

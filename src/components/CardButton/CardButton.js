@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledCardButton, StyledFormNumber } from './CardButton.styled'
-
-import Text from '../Text'
+import { StyledCardButton, StyledFormNumber, StyledText } from './CardButton.styled'
 
 import { ChangePageContext } from '../../contexts/ChangePageContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
@@ -45,7 +43,7 @@ export const CardButton = (props) => {
       <StyledFormNumber>
         {pageNumber}
       </StyledFormNumber>
-      <Text
+      <StyledText
         text={description}
       />
     </StyledCardButton>

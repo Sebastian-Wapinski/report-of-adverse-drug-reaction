@@ -8,6 +8,15 @@ grid-template-columns: 3fr 5fr;
 grid-template-areas: 
 'label container';
 padding: 0.5rem 0;
+
+@media (max-width: 43.75rem){
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 2rem;
+  grid-template-areas: 
+  '. label .'
+  '. container .';
+  }
+  margin-bottom: 2rem;
 `
 
 const StyledFieldRadio = styled(DefaultStyledFieldRadio)(

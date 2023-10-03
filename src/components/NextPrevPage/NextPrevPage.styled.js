@@ -5,6 +5,12 @@ width: 50%;
 display: flex;
 justify-content: space-between;
 margin-bottom: 2rem;
+
+@media (max-width: 43.75rem){
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
 `
 
 const StyledNextPrevPage = styled(DefaultStyledNextPrevPage)(
@@ -12,7 +18,7 @@ const StyledNextPrevPage = styled(DefaultStyledNextPrevPage)(
 )
 
 const StyledSendFormInfo = styled.div`
-position: absolute;
+position: fixed;
 top: -20rem;
 left: calc(50% - 12.5rem);
 background-color: red;
@@ -29,16 +35,28 @@ justify-content: center;
 align-items: center;
 
 ${
-  props => props.$isSubmit && css`
-  top: 2rem;
+  ({ $isSubmit }) => $isSubmit && css`
+  top: calc(50% - 25rem);
   `
 }
+
+@media (max-width: 43.75rem){
+  left: calc(50% - 6.5rem);
+  width: 12.5rem;
+  height: 6.25rem;
+  border-radius: 20px;
+  }
 `
 
 const StyledInfoMessage = styled.div`
 font-size: 1.5rem;
 font-weight: 500;
-color: ${props => props.theme.primaryTextColor}
+color: ${props => props.theme.primaryTextColor};
+
+@media (max-width: 43.75rem){
+  font-size: 1rem;
+  text-align: center;
+  }
 `
 
 export { StyledNextPrevPage, StyledSendFormInfo, StyledInfoMessage }

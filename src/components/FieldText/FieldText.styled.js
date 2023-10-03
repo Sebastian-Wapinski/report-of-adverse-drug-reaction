@@ -10,6 +10,17 @@ grid-template-areas:
 "label input"
 "error error";
 margin: 0.6rem 0;
+
+@media (max-width: 43.75rem){
+  grid-template-columns: auto;
+  grid-template-rows: 2rem;
+  grid-template-areas:
+  "label" 
+  "input"
+  "error";
+  margin: 2rem 0;
+  text-align: center;
+  }
 `
 
 const StyledFieldText = styled(DefaultStyledFieldText)(
@@ -28,6 +39,10 @@ const StyledInput = styled(Input)`
   box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
   outline: none;
   grid-area: input;
+
+  @media (max-width: 43.75rem){
+    justify-self: center;
+  }
 `
 
 const StyledLabel = styled(Label)`

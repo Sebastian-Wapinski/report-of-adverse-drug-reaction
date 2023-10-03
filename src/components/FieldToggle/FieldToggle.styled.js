@@ -47,6 +47,10 @@ cursor: pointer;
   left: calc(3rem - 1rem - 6px);
   background: ${props => props.theme.primaryBackground};
 }
+
+@media (max-width: 43.75rem){
+  justify-self: center;
+  }
 `
 
 const StyledLabel = styled(Label)`

@@ -11,6 +11,10 @@ box-shadow:  12px 12px 24px #79b59b, -12px -12px 24px #ddffff;
 color: ${props => props.theme.primaryTextColor};
 font-weight: 600;
 transition: all 0.3s ease-in-out;
+
+@media (max-width: 43.75rem){
+  width: 90%;
+  }
 `
 
 const StyledProgressBar = styled(DefaultStyledProgressBar)(

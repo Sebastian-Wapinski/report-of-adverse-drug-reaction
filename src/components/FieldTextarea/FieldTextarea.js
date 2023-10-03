@@ -1,10 +1,9 @@
 import React from 'react'
 
-import { StyledFieldTextarea, Textarea } from './FieldTextarea.styled'
+import { StyledFieldTextarea, Textarea, StyledLabel } from './FieldTextarea.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
-import Label from '../Label'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { validateForm } from '../../validation/validateForm'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
@@ -30,12 +29,12 @@ export const FieldTextarea = (props) => {
     <StyledFieldTextarea
       {...otherProps}
     >
-      <Label
+      <StyledLabel
         htmlFor={id}
         isRequired={isRequired}
       >
         {label}
-      </Label>
+      </StyledLabel>
       <Textarea
         id={id}
         name={name}
