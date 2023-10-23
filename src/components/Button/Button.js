@@ -8,14 +8,16 @@ export const Button = (props) => {
     children,
     onClick,
     isActive,
-    ...otherProps
+    className,
+    disabled
   } = props
 
   return (
     <StyledButton
       onClick={onClick}
       $isActive={isActive}
-      {...otherProps}
+      className={className}
+      disabled={disabled}
     >
       {children}
     </StyledButton>
@@ -25,7 +27,9 @@ export const Button = (props) => {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
-  isActive: PropTypes.bool
+  isActive: PropTypes.bool,
+  disabled: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default Button

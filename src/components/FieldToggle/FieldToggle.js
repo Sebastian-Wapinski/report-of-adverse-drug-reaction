@@ -8,11 +8,7 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { FormClassificationContext } from '../../contexts/FormClassificationContext'
 import { formClassificationData } from '../../data/formClassificationData'
 
-export const FieldToggle = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldToggle = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
   const { id, name, label, isRequired } = fieldData
 
@@ -48,9 +44,7 @@ export const FieldToggle = (props) => {
   }, [clearAllCheckboxes, clearCheckbox, formClassificationContext, name, stateValue])
 
   return (
-    <StyledFieldToggle
-      {...otherProps}
-    >
+    <StyledFieldToggle>
       <StyledLabel
         htmlFor={id}
         isRequired={isRequired}

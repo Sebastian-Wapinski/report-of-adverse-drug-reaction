@@ -4,18 +4,12 @@ import { StyledFieldText, StyledInput, StyledLabel } from './FieldText.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
-export const FieldText = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldText = () => {
   const { fieldData: { id, name, label, placeholder, textErrorMessage, isRequired } } = React.useContext(RenderingFieldContext)
 
   return (
     <>
-      <StyledFieldText
-        {...otherProps}
-      >
+      <StyledFieldText>
         <StyledLabel
           htmlFor={id}
           isRequired={isRequired}

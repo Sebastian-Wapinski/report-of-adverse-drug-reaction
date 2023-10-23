@@ -5,14 +5,11 @@ import { StyledUnit } from './Unit.styled'
 
 export const Unit = (props) => {
   const {
-    children,
-    ...otherProps
+    children
   } = props
 
   return (
-    <StyledUnit
-      {...otherProps}
-    >
+    <StyledUnit>
       {children}
     </StyledUnit>
   )

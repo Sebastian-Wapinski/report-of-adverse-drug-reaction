@@ -8,11 +8,7 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { validateForm } from '../../validation/validateForm'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
 
-export const FieldTextarea = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldTextarea = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
   const { id, name, label, rows = 0, cols = 0, textErrorMessage, isRequired } = fieldData
 
@@ -26,9 +22,7 @@ export const FieldTextarea = (props) => {
   }
 
   return (
-    <StyledFieldTextarea
-      {...otherProps}
-    >
+    <StyledFieldTextarea>
       <StyledLabel
         htmlFor={id}
         isRequired={isRequired}

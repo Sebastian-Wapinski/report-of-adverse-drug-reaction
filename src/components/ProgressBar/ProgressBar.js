@@ -1,24 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledProgressBar, ProgressPercentageBar, ProgressPercentageNumber } from './ProgressBar.styled'
 import { ProgressContext } from '../../contexts/ProgressContext'
 
-export const ProgressBar = (props) => {
-  const {
-    children,
-    ...otherProps
-  } = props
-
+export const ProgressBar = () => {
   const {
     requiredFields,
     correctlyValidatedFields
   } = React.useContext(ProgressContext)
 
   return (
-    <StyledProgressBar
-      {...otherProps}
-    >
+    <StyledProgressBar>
       <ProgressPercentageBar
         $widthPercentage={correctlyValidatedFields ? ((correctlyValidatedFields / requiredFields) * 100) : false}
       >
@@ -28,10 +20,6 @@ export const ProgressBar = (props) => {
       </ProgressPercentageNumber>
     </StyledProgressBar>
   )
-}
-
-ProgressBar.propTypes = {
-  children: PropTypes.node
 }
 
 export default ProgressBar

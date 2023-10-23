@@ -8,8 +8,7 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const CardButton = (props) => {
   const {
-    page,
-    ...otherProps
+    page
   } = props
 
   const {
@@ -38,7 +37,6 @@ export const CardButton = (props) => {
     <StyledCardButton
       onClick={setCurrentPage}
       isActive={isActive}
-      {...otherProps}
     >
       <StyledFormNumber>
         {pageNumber}

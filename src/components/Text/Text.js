@@ -5,16 +5,15 @@ import { StyledText } from './Text.styled'
 
 export const Text = (props) => {
   const {
-    children,
     text,
     isRequired,
-    ...otherProps
+    className
   } = props
 
   return (
     <StyledText
       required={isRequired}
-      {...otherProps}
+      className={className}
     >
       {text}
     </StyledText>
@@ -22,8 +21,8 @@ export const Text = (props) => {
 }
 
 Text.propTypes = {
-  children: PropTypes.node,
   text: PropTypes.string,
+  className: PropTypes.string,
   isRequired: PropTypes.bool
 }
 

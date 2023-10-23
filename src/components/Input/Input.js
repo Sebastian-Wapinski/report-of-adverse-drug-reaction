@@ -11,11 +11,21 @@ export const Input = (props) => {
   const {
     errorMessage,
     name,
-    ...otherProps
+    type,
+    className,
+    id,
+    placeholder,
+    checked,
+    min,
+    max,
+    step,
+    style,
+    disabled,
+    onClick,
+    value
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { type } = fieldData
 
   const { contextForm } = React.useContext(ChangeFormContext)
   const formContext = React.useContext(contextForm)
@@ -40,10 +50,20 @@ export const Input = (props) => {
     <>
       <StyledInput
         onChange={handleChangeData}
-        value={formContext[name]}
+        value={value || formContext[name]}
         name={name}
         autoComplete={'one-time-code'}
-        {...otherProps}
+        type={type}
+        className={className}
+        id={id}
+        placeholder={placeholder}
+        min={min}
+        checked={checked}
+        max={max}
+        step={step}
+        style={style}
+        disabled={disabled}
+        onClick={onClick}
       />
       {
         type === 'radio' ||
@@ -59,7 +79,22 @@ export const Input = (props) => {
 
 Input.propTypes = {
   name: PropTypes.string,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  type: PropTypes.string,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  checked: PropTypes.bool,
+  id: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  style: PropTypes.object,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ])
 }
 
 export default Input

@@ -9,23 +9,16 @@ import { ChangePageContext } from '../../contexts/ChangePageContext'
 
 import { pagesData } from '../../data/pagesData'
 
-export const Page = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const Page = () => {
   const { pageSide } = React.useContext(ChangePageContext)
 
   const currentPage = pagesData.find(({ pageSide: pageSideData }) => pageSide === pageSideData)
   const currentPageData = currentPage.pageData
 
   return (
-    <StyledPage
-      {...otherProps}
-    >
+    <StyledPage>
       <StyledFormContainer
         autoComplete={'off'}
-        {...otherProps}
       >
         {
         currentPageData.map(field => {

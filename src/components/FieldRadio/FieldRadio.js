@@ -7,11 +7,7 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import RadioContainer from '../RadioContainer'
 
-export const FieldRadio = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldRadio = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
   const { name, label, radioBtn = [], isRequired } = fieldData
 
@@ -19,9 +15,7 @@ export const FieldRadio = (props) => {
   const { [name]: stateValue } = React.useContext(contextForm)
 
   return (
-    <StyledFieldRadio
-      {...otherProps}
-    >
+    <StyledFieldRadio>
       <StyledLabel
         isRequired={isRequired}
       >

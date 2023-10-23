@@ -1,21 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import allFormsBasicData from '../../data/allFormsBasicData'
 import CardButton from '../CardButton/CardButton'
 
 import { StyledCardButtonsContainer } from './CardButtonsContainer.styled'
 
-export const CardButtonsContainer = (props) => {
-  const {
-    children,
-    ...otherProps
-  } = props
-
+export const CardButtonsContainer = () => {
   return (
-    <StyledCardButtonsContainer
-      {...otherProps}
-    >
+    <StyledCardButtonsContainer>
       {
       allFormsBasicData.map(page => {
         const { id } = page
@@ -29,10 +21,6 @@ export const CardButtonsContainer = (props) => {
       }
     </StyledCardButtonsContainer>
   )
-}
-
-CardButtonsContainer.propTypes = {
-  children: PropTypes.node
 }
 
 export default CardButtonsContainer

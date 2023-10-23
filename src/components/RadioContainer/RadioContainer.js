@@ -5,14 +5,11 @@ import { StyledRadioContainer } from './RadioContainer.styled'
 
 export const RadioContainer = (props) => {
   const {
-    children,
-    ...otherProps
+    children
   } = props
 
   return (
-    <StyledRadioContainer
-      {...otherProps}
-    >
+    <StyledRadioContainer>
       {children}
     </StyledRadioContainer>
   )

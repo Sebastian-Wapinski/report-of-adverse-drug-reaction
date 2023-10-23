@@ -5,14 +5,11 @@ import { StyledDataContainer, CenterContainer } from './DataContainer.styled'
 
 export const DataContainer = (props) => {
   const {
-    children,
-    ...otherProps
+    children
   } = props
 
   return (
-    <StyledDataContainer
-      {...otherProps}
-    >
+    <StyledDataContainer>
       <CenterContainer>
         {children}
       </CenterContainer>

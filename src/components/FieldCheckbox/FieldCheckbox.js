@@ -8,8 +8,7 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldCheckbox = (props) => {
   const {
-    isDisabled,
-    ...otherProps
+    isDisabled
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
@@ -19,9 +18,7 @@ export const FieldCheckbox = (props) => {
   const formContext = React.useContext(contextForm)
 
   return (
-    <StyledFieldCheckbox
-      {...otherProps}
-    >
+    <StyledFieldCheckbox>
       <StyledLabel
         isRequired={isRequired}
       >

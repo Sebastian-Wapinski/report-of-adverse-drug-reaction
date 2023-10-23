@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledNextPrevPage, StyledSendFormInfo, StyledInfoMessage } from './NextPrevPage.styled'
 
@@ -18,12 +17,7 @@ import { FormMedicinesContext } from '../../contexts/FormMedicinesContext'
 import { ProgressContext } from '../../contexts/ProgressContext'
 import { clearContextsValues, createFormToSendOnServer } from '../../helper/helper'
 
-export const NextPrevPage = (props) => {
-  const {
-    children,
-    ...otherProps
-  } = props
-
+export const NextPrevPage = () => {
   const AMOUNT_OF_ALL_PAGES = allFormsBasicData.length
   const { pageSide, setPageSide } = React.useContext(ChangePageContext)
   const { setContextForm } = React.useContext(ChangeFormContext)
@@ -102,9 +96,7 @@ export const NextPrevPage = (props) => {
   }
 
   return (
-    <StyledNextPrevPage
-      {...otherProps}
-    >
+    <StyledNextPrevPage>
       <Button
         onClick={setPreviousSide}
         disabled={pageSide === 1}
@@ -147,10 +139,6 @@ export const NextPrevPage = (props) => {
       </StyledSendFormInfo>
     </StyledNextPrevPage>
   )
-}
-
-NextPrevPage.propTypes = {
-  children: PropTypes.node
 }
 
 export default NextPrevPage

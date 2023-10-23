@@ -9,8 +9,7 @@ import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
 export const FormField = (props) => {
   const {
-    fieldData,
-    ...otherProps
+    fieldData
   } = props
 
   const {
@@ -24,9 +23,7 @@ export const FormField = (props) => {
   }, [fieldData, setFieldData])
 
   return (
-    <StyledFormField
-      {...otherProps}
-    >
+    <StyledFormField>
       {
         Object.keys(contextFieldData).length !== 0 ?
           checkTypeData.map(arrayPosition => {

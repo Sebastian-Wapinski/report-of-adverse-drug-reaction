@@ -6,17 +6,11 @@ import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
 
 import FieldCheckbox from '../FieldCheckbox'
 
-export const FieldCheckboxClassification = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldCheckboxClassification = () => {
   const { sideEffectsIsPregnant, sideEffectsSeverity } = React.useContext(FormSideEffectsContext)
 
   return (
-    <StyledFieldCheckboxClassification
-      {...otherProps}
-    >
+    <StyledFieldCheckboxClassification>
       <FieldCheckbox
         isDisabled={{
           isFetalInjury: {

@@ -5,14 +5,11 @@ import { StyledPageTitle } from './PageTitle.styled'
 
 export const PageTitle = (props) => {
   const {
-    children,
-    ...otherProps
+    children
   } = props
 
   return (
-    <StyledPageTitle
-      {...otherProps}
-    >
+    <StyledPageTitle>
       {children}
     </StyledPageTitle>
   )

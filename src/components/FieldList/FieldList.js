@@ -7,11 +7,7 @@ import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import { validateForm } from '../../validation/validateForm'
 
-export const FieldList = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldList = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
   const { id, name, label, list = [], isRequired, textErrorMessage } = fieldData
 
@@ -43,7 +39,6 @@ export const FieldList = (props) => {
       />
       <StyledFieldList
         $activeList={activeList}
-        {...otherProps}
       >
         <StyledLabel
           htmlFor={id}

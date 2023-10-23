@@ -5,14 +5,11 @@ import { StyledPageSubtitle } from './PageSubtitle.styled'
 
 export const PageSubtitle = (props) => {
   const {
-    children,
-    ...otherProps
+    children
   } = props
 
   return (
-    <StyledPageSubtitle
-      {...otherProps}
-    >
+    <StyledPageSubtitle>
       {children}
     </StyledPageSubtitle>
   )

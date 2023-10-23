@@ -5,14 +5,11 @@ import { StyledErrorMessage } from './ErrorMessage.styled'
 
 export const ErrorMessage = (props) => {
   const {
-    children,
-    ...otherProps
+    children
   } = props
 
   return (
-    <StyledErrorMessage
-      {...otherProps}
-    >
+    <StyledErrorMessage>
       {children}
     </StyledErrorMessage>
   )

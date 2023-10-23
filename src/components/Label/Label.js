@@ -7,13 +7,15 @@ export const Label = (props) => {
   const {
     children,
     isRequired,
-    ...otherProps
+    htmlFor,
+    className
   } = props
 
   return (
     <StyledLabel
       required={isRequired}
-      {...otherProps}
+      htmlFor={htmlFor}
+      className={className}
     >
       {children}
     </StyledLabel>
@@ -22,7 +24,9 @@ export const Label = (props) => {
 
 Label.propTypes = {
   children: PropTypes.node,
-  isRequired: PropTypes.bool
+  isRequired: PropTypes.bool,
+  htmlFor: PropTypes.string,
+  className: PropTypes.string
 }
 
 export default Label

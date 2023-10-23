@@ -8,11 +8,7 @@ import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
 
-export const FieldRange = (props) => {
-  const {
-    ...otherProps
-  } = props
-
+export const FieldRange = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
   const { id, name, label, min = 0, max = 0, unit = '', step = 1, isRequired, textErrorMessage, minToValidate, maxToValidate } = fieldData
 
@@ -20,9 +16,7 @@ export const FieldRange = (props) => {
   const formContext = React.useContext(contextForm)
 
   return (
-    <StyledFieldRange
-      {...otherProps}
-    >
+    <StyledFieldRange>
       <StaledLabel
         htmlFor={id}
         isRequired={isRequired}
