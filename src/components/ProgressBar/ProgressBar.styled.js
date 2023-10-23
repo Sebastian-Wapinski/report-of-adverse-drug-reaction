@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledProgressBar = styled.div`
 position: relative;
@@ -12,7 +13,7 @@ color: ${props => props.theme.primaryTextColor};
 font-weight: 600;
 transition: all 0.3s ease-in-out;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   width: 90%;
   }
 `

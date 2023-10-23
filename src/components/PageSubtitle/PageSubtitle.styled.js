@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledPageSubtitle = styled.h3`
   display: flex;
@@ -8,7 +9,7 @@ const DefaultStyledPageSubtitle = styled.h3`
   margin: 1rem 0;
   color: ${props => props.theme.primaryTextColor};
 
-  @media (max-width: 43.75rem){
+  @media (max-width: ${size.small}){
     font-size: 1rem;
     width: 100%;
     max-width: 20rem;

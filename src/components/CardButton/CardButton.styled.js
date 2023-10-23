@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { Button } from '../Button'
 import Text from '../Text'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledCardButton = styled(Button)`
- @media (max-width: 43.75rem){
+ @media (max-width: ${size.small}){
     width: 100%;
     max-width: 20rem;
     margin: 1rem 1rem;
@@ -17,14 +18,14 @@ const StyledCardButton = styled(DefaultStyledCardButton)(
 )
 
 const StyledFormNumber = styled.p`
- @media (max-width: 43.75rem){
+ @media (max-width: ${size.small}){
   padding: 0;
   margin: 0;
   }
 `
 
 const StyledText = styled(Text)`
- @media (max-width: 43.75rem){
+ @media (max-width: ${size.small}){
   padding: 0;
   margin: 0;
   }

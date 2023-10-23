@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { Label } from '../Label'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledFieldText = styled.div`
 display: grid;
@@ -11,7 +12,7 @@ grid-template-areas:
 "error error";
 margin: 0.6rem 0;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   grid-template-columns: auto;
   grid-template-rows: 2rem;
   grid-template-areas:
@@ -40,7 +41,7 @@ const StyledInput = styled(Input)`
   outline: none;
   grid-area: input;
 
-  @media (max-width: 43.75rem){
+  @media (max-width: ${size.small}){
     justify-self: center;
   }
 `

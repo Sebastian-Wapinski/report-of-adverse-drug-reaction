@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { Label } from '../Label'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledFieldRadio = styled.div`
 display: grid;
@@ -9,7 +10,7 @@ grid-template-areas:
 'label container';
 padding: 0.5rem 0;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 2rem;
   grid-template-areas: 

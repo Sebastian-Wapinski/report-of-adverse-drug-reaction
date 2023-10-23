@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledErrorMessage = styled.div`
 color: ${props => props.theme.primaryTextColor};
@@ -8,7 +9,7 @@ justify-content: center;
 grid-area: error;
 padding: 0.8rem;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   text-align: center;
   }
 `

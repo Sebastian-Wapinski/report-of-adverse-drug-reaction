@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Label from '../Label'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledFieldTextarea = styled.div`
 display: grid;
@@ -29,13 +30,13 @@ const Textarea = styled.textarea`
   margin-bottom: 1rem;
   grid-area: textarea;
 
-  @media (max-width: 43.75rem){
+  @media (max-width: ${size.small}){
     justify-self: center;
   }
 `
 
 const StyledLabel = styled(Label)`
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   text-align: center;
   }
 `

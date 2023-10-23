@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledNextPrevPage = styled.div`
 width: 50%;
@@ -6,7 +7,7 @@ display: flex;
 justify-content: space-between;
 margin-bottom: 2rem;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -40,7 +41,7 @@ ${
   `
 }
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   left: calc(50% - 6.5rem);
   width: 12.5rem;
   height: 6.25rem;
@@ -53,7 +54,7 @@ font-size: 1.5rem;
 font-weight: 500;
 color: ${props => props.theme.primaryTextColor};
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   font-size: 1rem;
   text-align: center;
   }

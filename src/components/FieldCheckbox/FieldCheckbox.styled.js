@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Label } from '../Label'
 import { Input } from '../Input'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledFieldCheckbox = styled.div`
 margin: 1rem 0;
@@ -19,14 +20,14 @@ const StyledFieldCheckbox = styled(DefaultStyledFieldCheckbox)(
 const StyledCheckboxesContainer = styled.div`
 grid-area: checkboxesContainer;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   margin: 1rem 0;
   }
 `
 
 const StyledLabel = styled(Label)`
 cursor: default;
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   text-align: center;
   }
 `
@@ -39,7 +40,7 @@ grid-template-rows: auto;
 grid-template-areas: 
 'input checkboxLabel';
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   margin: 0.6rem;
   }
 `
@@ -87,7 +88,7 @@ grid-area: checkboxLabel;
 display: grid;
 align-items: center;
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   margin-left: 2rem;
   }
 `

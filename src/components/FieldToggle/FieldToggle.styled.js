@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { Label } from '../Label'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledFieldToggle = styled.div`
 padding: 0.5rem 0;
@@ -48,7 +49,7 @@ cursor: pointer;
   background: ${props => props.theme.primaryBackground};
 }
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   justify-self: center;
   }
 `

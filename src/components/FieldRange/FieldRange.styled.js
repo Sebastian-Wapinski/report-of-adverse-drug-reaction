@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { Label } from '../Label'
+import { size } from '../styled/breakpoints'
 
 const DefaultStyledFieldRange = styled.div`
 display: grid;
@@ -11,7 +12,7 @@ grid-template-areas:
 'inputNumber inputNumber unit'
 'error error error';
 
-@media (max-width: 43.75rem){
+@media (max-width: ${size.small}){
   grid-template-columns: 1fr 8fr 1fr;
   grid-template-rows: 2rem;
   grid-template-areas: 
@@ -79,7 +80,7 @@ const StyledInputNumber = styled(Input)`
   outline: none;
   grid-area: inputNumber;
 
-  @media (max-width: 43.75rem){
+  @media (max-width: ${size.small}){
     justify-self: center;
     margin: 1.5rem 0;
   }
@@ -88,7 +89,7 @@ const StyledInputNumber = styled(Input)`
 const StaledLabel = styled(Label)`
   cursor: default;
 
-  @media (max-width: 43.75rem){
+  @media (max-width: ${size.small}){
     text-align: center;
   }
 `
