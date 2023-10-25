@@ -4,8 +4,6 @@ import { StyledFieldToggle, StyleInput, StyledLabel } from './FieldToggle.styled
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
-// import { FormClassificationContext } from '../../contexts/FormClassificationContext'
 import { formClassificationData } from '../../data/formClassificationData'
 import { FormContext } from '../../contexts/FormContext'
 

@@ -87,13 +87,10 @@ export const FormContextProvider = (props) => {
 
   const [formState, dispatch] = React.useReducer(reducer, init)
 
-  const medicData = formState.medicData
-
   return (
     <FormContext.Provider
       value={{
         ...formState,
-        medicData,
         dispatch
       }}
     >

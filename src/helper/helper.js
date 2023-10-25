@@ -2,19 +2,21 @@ import React from 'react'
 import { ErrorMessage } from '../components/ErrorMessage'
 
 export const createFormToSendOnServer = (rawForm) => {
-  return Object.keys(rawForm)
-    .filter(key => !key.includes('IsValid') && !key.includes('dispatch'))
-    .reduce((acc, key) => {
-      acc[key] = rawForm[key]
-      return acc
-    }, {})
+  return rawForm.map((rawItem) => {
+    return Object.keys(rawItem[1])
+      .filter(key => !key.includes('IsValid') && !key.includes('dispatch'))
+      .reduce((acc, key) => {
+        acc[key] = rawItem[1][key]
+        return acc
+      }, {})
+  })
 }
 
-export const clearContextsValues = (contexts) => {
-  contexts.forEach(context => {
-    for (const key in context) {
-      if (!key.includes('dispatch')) {
-        const type = typeof context[key]
+export const clearContextsValues = (state, dispatch) => {
+  Object.entries(state).forEach(contextFields => {
+    if (!contextFields[0].includes('dispatch')) {
+      for (const key in contextFields[1]) {
+        const type = typeof contextFields[1][key]
         const value =
           type === 'string' ?
             ''
@@ -23,7 +25,7 @@ export const clearContextsValues = (contexts) => {
               0
               :
               false
-        context.dispatch({ name: key, value })
+        dispatch({ pageName: contextFields[0], name: key, value })
       }
     }
   })

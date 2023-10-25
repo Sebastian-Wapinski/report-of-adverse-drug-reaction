@@ -3,7 +3,6 @@ import React from 'react'
 import { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList, StyledLabel } from './FieldList.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import { validateForm } from '../../validation/validateForm'
 import { FormContext } from '../../contexts/FormContext'

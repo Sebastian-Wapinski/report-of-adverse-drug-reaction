@@ -5,7 +5,6 @@ import { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel } fr
 import Unit from '../Unit'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
 import { FormContext } from '../../contexts/FormContext'
 

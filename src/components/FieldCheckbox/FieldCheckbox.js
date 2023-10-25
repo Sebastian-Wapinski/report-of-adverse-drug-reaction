@@ -5,7 +5,6 @@ import { StyledFieldCheckbox, StyledCheckboxLabel, StyledLabel, StyledCheckboxes
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { FormContext } from '../../contexts/FormContext'
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldCheckbox = (props) => {
   const {

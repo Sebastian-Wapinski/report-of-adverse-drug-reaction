@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { StyledInput } from './Input.styled'
 import { validateForm } from '../../validation/validateForm'
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
 import { FormContext } from '../../contexts/FormContext'
 
@@ -29,7 +28,6 @@ export const Input = (props) => {
   const { fieldData } = React.useContext(RenderingFieldContext)
   const { pageName } = fieldData
 
-  // const { contextForm } = React.useContext(ChangeFormContext)
   const { dispatch, [pageName]: stateData } = React.useContext(FormContext)
 
   const handleChangeData = React.useCallback((e) => {

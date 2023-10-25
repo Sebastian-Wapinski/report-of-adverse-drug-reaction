@@ -7,13 +7,7 @@ import Button from '../Button'
 import { ChangePageContext } from '../../contexts/ChangePageContext'
 
 import allFormsBasicData from '../../data/allFormsBasicData'
-// import { nextContextArr, prevContextArr } from '../../data/nextPrevChangeFormContextData'
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
-// import { FormPatientContext } from '../../contexts/FormPatientContext'
-// import { FormMedicContext } from '../../contexts/FormMedicContext'
-// import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
-// import { FormClassificationContext } from '../../contexts/FormClassificationContext'
-// import { FormMedicinesContext } from '../../contexts/FormMedicinesContext'
+
 import { ProgressContext } from '../../contexts/ProgressContext'
 import { clearContextsValues, createFormToSendOnServer } from '../../helper/helper'
 import { FormContext } from '../../contexts/FormContext'
@@ -21,9 +15,9 @@ import { FormContext } from '../../contexts/FormContext'
 export const NextPrevPage = () => {
   const AMOUNT_OF_ALL_PAGES = allFormsBasicData.length
   const { pageSide, setPageSide } = React.useContext(ChangePageContext)
-  // const { setContextForm } = React.useContext(ChangeFormContext)
 
   const formState = React.useContext(FormContext)
+  const { dispatch } = formState
 
   const [clickedSubmit, setClickedSubmit] = React.useState(false)
   const [clickedWithoutSubmit, setClickedWithoutSubmit] = React.useState(false)
@@ -31,19 +25,11 @@ export const NextPrevPage = () => {
   const setPreviousSide = React.useCallback(() => {
     if (pageSide === 1) return
 
-    // if (prevContextArr[pageSide - 1]) {
-    //   setContextForm(formState[prevContextArr[pageSide - 1].prevContext])
-    // }
-
     setPageSide(pageSide - 1)
   }, [pageSide, setPageSide])
 
   const setNextSide = React.useCallback(() => {
     if (pageSide === AMOUNT_OF_ALL_PAGES) return
-
-    // if (nextContextArr[pageSide]) {
-    //   setContextForm(formState[nextContextArr[pageSide].nextContext])
-    // }
 
     setPageSide(pageSide + 1)
   }, [AMOUNT_OF_ALL_PAGES, pageSide, setPageSide])
@@ -53,16 +39,6 @@ export const NextPrevPage = () => {
     correctlyValidatedFields
   } = React.useContext(ProgressContext)
 
-  // const formMedicContext = React.useContext(FormMedicContext)
-  // const formPatientContext = React.useContext(FormPatientContext)
-  // const formSideEffectsContext = React.useContext(FormSideEffectsContext)
-  // const formClassificationContext = React.useContext(FormClassificationContext)
-  // const formMedicinesContext = React.useContext(FormMedicinesContext)
-
-  const clearForms = React.useCallback((...contexts) => {
-    clearContextsValues(contexts)
-  }, [])
-
   const handleSubmit = React.useCallback(() => {
     if (requiredFields !== correctlyValidatedFields) {
       setClickedWithoutSubmit(true)
@@ -70,18 +46,16 @@ export const NextPrevPage = () => {
     }
     setClickedSubmit(true)
 
-    const rawForm = {
-      ...{ ...formState }
-    }
+    const rawForm = [
+      Object.entries(formState)
+    ]
 
-    const formToSendOnServer = createFormToSendOnServer(rawForm)
+    const formToSendOnServer = createFormToSendOnServer(rawForm[0])
 
-    console.log(formToSendOnServer)
+    console.log(formToSendOnServer, 'formToSendOnServer')
 
-    clearForms(
-      formState
-    )
-  }, [requiredFields, correctlyValidatedFields, formState, clearForms])
+    clearContextsValues(formState, dispatch)
+  }, [correctlyValidatedFields, dispatch, formState, requiredFields])
 
   const handleTimeout = () => {
     setTimeout(() => {

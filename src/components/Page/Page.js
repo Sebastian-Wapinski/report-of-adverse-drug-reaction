@@ -7,12 +7,12 @@ import FormField from '../FormField'
 import { ProviderRenderingFieldContext } from '../../contexts/RenderingFieldContext'
 import { ChangePageContext } from '../../contexts/ChangePageContext'
 
-import { pagesData } from '../../data/pagesData'
+import allFormsBasicData from '../../data/allFormsBasicData'
 
 export const Page = () => {
   const { pageSide } = React.useContext(ChangePageContext)
 
-  const currentPage = pagesData.find(({ pageSide: pageSideData }) => pageSide === pageSideData)
+  const currentPage = allFormsBasicData.find(({ pageNumber: pageSideData }) => pageSide === pageSideData)
   const currentPageData = currentPage.pageData
 
   return (

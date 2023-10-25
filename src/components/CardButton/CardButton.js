@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { StyledCardButton, StyledFormNumber, StyledText } from './CardButton.styled'
 
 import { ChangePageContext } from '../../contexts/ChangePageContext'
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const CardButton = (props) => {
   const {
@@ -13,7 +12,6 @@ export const CardButton = (props) => {
   } = props
 
   const { pageSide, setPageSide } = React.useContext(ChangePageContext)
-  // const { setContextForm } = React.useContext(ChangeFormContext)
 
   const setCurrentPage = React.useCallback(() => {
     if (pageSide === pageNumber) {
@@ -21,7 +19,6 @@ export const CardButton = (props) => {
     }
 
     setPageSide(pageNumber)
-    // setContextForm(contextForm)
   }, [pageSide, pageNumber, setPageSide])
 
   let isActive = false

@@ -4,7 +4,6 @@ import { StyledFieldTextarea, Textarea, StyledLabel } from './FieldTextarea.styl
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
-// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { validateForm } from '../../validation/validateForm'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
 import { FormContext } from '../../contexts/FormContext'
