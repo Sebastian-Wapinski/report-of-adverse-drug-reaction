@@ -7,20 +7,23 @@ import Button from '../Button'
 import { ChangePageContext } from '../../contexts/ChangePageContext'
 
 import allFormsBasicData from '../../data/allFormsBasicData'
-import { nextContextArr, prevContextArr } from '../../data/nextPrevChangeFormContextData'
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
-import { FormPatientContext } from '../../contexts/FormPatientContext'
-import { FormMedicContext } from '../../contexts/FormMedicContext'
-import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
-import { FormClassificationContext } from '../../contexts/FormClassificationContext'
-import { FormMedicinesContext } from '../../contexts/FormMedicinesContext'
+// import { nextContextArr, prevContextArr } from '../../data/nextPrevChangeFormContextData'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+// import { FormPatientContext } from '../../contexts/FormPatientContext'
+// import { FormMedicContext } from '../../contexts/FormMedicContext'
+// import { FormSideEffectsContext } from '../../contexts/FormSideEffectsContext'
+// import { FormClassificationContext } from '../../contexts/FormClassificationContext'
+// import { FormMedicinesContext } from '../../contexts/FormMedicinesContext'
 import { ProgressContext } from '../../contexts/ProgressContext'
 import { clearContextsValues, createFormToSendOnServer } from '../../helper/helper'
+import { FormContext } from '../../contexts/FormContext'
 
 export const NextPrevPage = () => {
   const AMOUNT_OF_ALL_PAGES = allFormsBasicData.length
   const { pageSide, setPageSide } = React.useContext(ChangePageContext)
-  const { setContextForm } = React.useContext(ChangeFormContext)
+  // const { setContextForm } = React.useContext(ChangeFormContext)
+
+  const formState = React.useContext(FormContext)
 
   const [clickedSubmit, setClickedSubmit] = React.useState(false)
   const [clickedWithoutSubmit, setClickedWithoutSubmit] = React.useState(false)
@@ -28,33 +31,33 @@ export const NextPrevPage = () => {
   const setPreviousSide = React.useCallback(() => {
     if (pageSide === 1) return
 
-    if (prevContextArr[pageSide - 1]) {
-      setContextForm(prevContextArr[pageSide - 1].prevContext)
-    }
+    // if (prevContextArr[pageSide - 1]) {
+    //   setContextForm(formState[prevContextArr[pageSide - 1].prevContext])
+    // }
 
     setPageSide(pageSide - 1)
-  }, [pageSide, setContextForm, setPageSide])
+  }, [pageSide, setPageSide])
 
   const setNextSide = React.useCallback(() => {
     if (pageSide === AMOUNT_OF_ALL_PAGES) return
 
-    if (nextContextArr[pageSide]) {
-      setContextForm(nextContextArr[pageSide].nextContext)
-    }
+    // if (nextContextArr[pageSide]) {
+    //   setContextForm(formState[nextContextArr[pageSide].nextContext])
+    // }
 
     setPageSide(pageSide + 1)
-  }, [AMOUNT_OF_ALL_PAGES, pageSide, setContextForm, setPageSide])
+  }, [AMOUNT_OF_ALL_PAGES, pageSide, setPageSide])
 
   const {
     requiredFields,
     correctlyValidatedFields
   } = React.useContext(ProgressContext)
 
-  const formMedicContext = React.useContext(FormMedicContext)
-  const formPatientContext = React.useContext(FormPatientContext)
-  const formSideEffectsContext = React.useContext(FormSideEffectsContext)
-  const formClassificationContext = React.useContext(FormClassificationContext)
-  const formMedicinesContext = React.useContext(FormMedicinesContext)
+  // const formMedicContext = React.useContext(FormMedicContext)
+  // const formPatientContext = React.useContext(FormPatientContext)
+  // const formSideEffectsContext = React.useContext(FormSideEffectsContext)
+  // const formClassificationContext = React.useContext(FormClassificationContext)
+  // const formMedicinesContext = React.useContext(FormMedicinesContext)
 
   const clearForms = React.useCallback((...contexts) => {
     clearContextsValues(contexts)
@@ -68,11 +71,7 @@ export const NextPrevPage = () => {
     setClickedSubmit(true)
 
     const rawForm = {
-      ...formMedicContext,
-      ...formPatientContext,
-      ...formSideEffectsContext,
-      ...formClassificationContext,
-      ...formMedicinesContext
+      ...{ ...formState }
     }
 
     const formToSendOnServer = createFormToSendOnServer(rawForm)
@@ -80,13 +79,9 @@ export const NextPrevPage = () => {
     console.log(formToSendOnServer)
 
     clearForms(
-      formMedicContext,
-      formPatientContext,
-      formSideEffectsContext,
-      formClassificationContext,
-      formMedicinesContext
+      formState
     )
-  }, [clearForms, correctlyValidatedFields, formClassificationContext, formMedicContext, formMedicinesContext, formPatientContext, formSideEffectsContext, requiredFields])
+  }, [requiredFields, correctlyValidatedFields, formState, clearForms])
 
   const handleTimeout = () => {
     setTimeout(() => {

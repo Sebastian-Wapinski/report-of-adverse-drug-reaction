@@ -35,7 +35,8 @@ export const formClassificationData = [
       }
     ],
     isRequired: false,
-    type: 'checkboxClassification'
+    type: 'checkboxClassification',
+    pageName: 'classification'
   },
   {
     id: uuid(),
@@ -69,6 +70,7 @@ export const formClassificationData = [
       }
     ],
     isRequired: true,
-    type: 'list'
+    type: 'list',
+    pageName: 'classification'
   }
 ]

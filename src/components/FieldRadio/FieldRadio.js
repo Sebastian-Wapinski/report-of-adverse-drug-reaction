@@ -3,16 +3,17 @@ import React from 'react'
 import { StyledFieldRadio, StyledInput, StyledLabel, StyledContainer, StyledRadioLabel } from './FieldRadio.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import RadioContainer from '../RadioContainer'
+import { FormContext } from '../../contexts/FormContext'
 
 export const FieldRadio = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { name, label, radioBtn = [], isRequired } = fieldData
+  const { name, label, radioBtn = [], isRequired, pageName } = fieldData
 
-  const { contextForm } = React.useContext(ChangeFormContext)
-  const { [name]: stateValue } = React.useContext(contextForm)
+  const { [pageName]: stateData } = React.useContext(FormContext)
+  const { [name]: stateValue } = stateData
 
   return (
     <StyledFieldRadio>

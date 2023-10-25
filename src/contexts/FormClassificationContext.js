@@ -1,48 +1,48 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+// import React from 'react'
+// import PropTypes from 'prop-types'
 
-const errorMsg = () => {
-  console.error('Forgot pass provider')
-}
+// const errorMsg = () => {
+//   console.error('Forgot pass provider')
+// }
 
-const init = {
-  isDecease: false,
-  isDangerToLife: false,
-  isDisability: false,
-  isFetalInjury: false,
-  isOther: false,
+// const init = {
+//   isDecease: false,
+//   isDangerToLife: false,
+//   isDisability: false,
+//   isFetalInjury: false,
+//   isOther: false,
 
-  result: '',
-  resultIsValid: false,
+//   result: '',
+//   resultIsValid: false,
 
-  dispatch: errorMsg
-}
+//   dispatch: errorMsg
+// }
 
-export const FormClassificationContext = React.createContext(init)
+// export const FormClassificationContext = React.createContext(init)
 
-export const FormClassificationContextProvider = (props) => {
-  const { children } = props
+// export const FormClassificationContextProvider = (props) => {
+//   const { children } = props
 
-  const reducer = (state, { name, value }) => {
-    return { ...state, [name]: value }
-  }
+//   const reducer = (state, { name, value }) => {
+//     return { ...state, [name]: value }
+//   }
 
-  const [formClassificationState, dispatch] = React.useReducer(reducer, init)
+//   const [formClassificationState, dispatch] = React.useReducer(reducer, init)
 
-  return (
-    <FormClassificationContext.Provider
-      value={{
-        ...formClassificationState,
-        dispatch
-      }}
-    >
-      {children}
-    </FormClassificationContext.Provider>
-  )
-}
+//   return (
+//     <FormClassificationContext.Provider
+//       value={{
+//         ...formClassificationState,
+//         dispatch
+//       }}
+//     >
+//       {children}
+//     </FormClassificationContext.Provider>
+//   )
+// }
 
-FormClassificationContextProvider.propTypes = {
-  children: PropTypes.node
-}
+// FormClassificationContextProvider.propTypes = {
+//   children: PropTypes.node
+// }
 
-export default FormClassificationContextProvider
+// export default FormClassificationContextProvider

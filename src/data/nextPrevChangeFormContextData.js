@@ -1,51 +1,51 @@
-import { FormClassificationContext } from '../contexts/FormClassificationContext'
-import { FormMedicContext } from '../contexts/FormMedicContext'
-import { FormMedicinesContext } from '../contexts/FormMedicinesContext'
-import { FormPatientContext } from '../contexts/FormPatientContext'
-import { FormSideEffectsContext } from '../contexts/FormSideEffectsContext'
+// import { FormClassificationContext } from '../contexts/FormClassificationContext'
+// import { FormMedicContext } from '../contexts/FormMedicContext'
+// import { FormMedicinesContext } from '../contexts/FormMedicinesContext'
+// import { FormPatientContext } from '../contexts/FormPatientContext'
+// import { FormSideEffectsContext } from '../contexts/FormSideEffectsContext'
 
 export const prevContextArr = [
   {
     pageContextSide: 1,
-    prevContext: FormMedicContext
+    prevContext: 'medicData'
   },
   {
     pageContextSide: 2,
-    prevContext: FormMedicContext
+    prevContext: 'medicData'
   },
   {
     pageContextSide: 3,
-    prevContext: FormPatientContext
+    prevContext: 'patientData'
   },
   {
     pageContextSide: 4,
-    prevContext: FormSideEffectsContext
+    prevContext: 'sideEffects'
   },
   {
     pageContextSide: 5,
-    prevContext: FormClassificationContext
+    prevContext: 'classification'
   }
 ]
 
 export const nextContextArr = [
   {
     pageContextSide: 1,
-    nextContext: FormPatientContext
+    nextContext: 'patientData'
   },
   {
     pageContextSide: 2,
-    nextContext: FormPatientContext
+    nextContext: 'patientData'
   },
   {
     pageContextSide: 3,
-    nextContext: FormSideEffectsContext
+    nextContext: 'sideEffects'
   },
   {
     pageContextSide: 4,
-    nextContext: FormClassificationContext
+    nextContext: 'classification'
   },
   {
     pageContextSide: 5,
-    nextContext: FormMedicinesContext
+    nextContext: 'medicines'
   }
 ]

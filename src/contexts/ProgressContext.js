@@ -6,12 +6,13 @@ import { formPatientData } from '../data/formPatientData'
 import { formSideEffectsData } from '../data/formSideEffectsData'
 import { formClassificationData } from '../data/formClassificationData'
 import { formMedicinesData } from '../data/formMedicinesData'
+import { FormContext } from './FormContext'
 
-import { FormMedicContext } from '../contexts/FormMedicContext'
-import { FormPatientContext } from '../contexts/FormPatientContext'
-import { FormSideEffectsContext } from '../contexts/FormSideEffectsContext'
-import { FormClassificationContext } from '../contexts/FormClassificationContext'
-import { FormMedicinesContext } from '../contexts/FormMedicinesContext'
+// import { FormMedicContext } from '../contexts/FormMedicContext'
+// import { FormPatientContext } from '../contexts/FormPatientContext'
+// import { FormSideEffectsContext } from '../contexts/FormSideEffectsContext'
+// import { FormClassificationContext } from '../contexts/FormClassificationContext'
+// import { FormMedicinesContext } from '../contexts/FormMedicinesContext'
 
 const errorMsg = () => {
   console.error('Forgot pass provider')
@@ -60,15 +61,17 @@ export const ProgressContextProvider = (props) => {
     }, 0)
   }, [createNameListOfIsRequiredPositions])
 
-  const formMedicContext = React.useContext(FormMedicContext)
-  const formPatientContext = React.useContext(FormPatientContext)
-  const formSideEffectsContext = React.useContext(FormSideEffectsContext)
-  const formClassificationContext = React.useContext(FormClassificationContext)
-  const formMedicinesContext = React.useContext(FormMedicinesContext)
+  // const formMedicContext = React.useContext(FormMedicContext)
+  // const formPatientContext = React.useContext(FormPatientContext)
+  // const formSideEffectsContext = React.useContext(FormSideEffectsContext)
+  // const formClassificationContext = React.useContext(FormClassificationContext)
+  // const formMedicinesContext = React.useContext(FormMedicinesContext)
+
+  const formState = React.useContext(FormContext)
 
   React.useEffect(() => {
-    setCorrectlyValidatedFields(sumCorrectlyValidatedFields(formMedicContext, formPatientContext, formSideEffectsContext, formClassificationContext, formMedicinesContext))
-  }, [formClassificationContext, formMedicContext, formMedicinesContext, formPatientContext, formSideEffectsContext, sumCorrectlyValidatedFields])
+    setCorrectlyValidatedFields(sumCorrectlyValidatedFields(formState.medicData, formState.patientData, formState.sideEffects, formState.classification, formState.medicines))
+  }, [formState, sumCorrectlyValidatedFields])
 
   return (
     <ProgressContext.Provider

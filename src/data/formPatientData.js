@@ -14,7 +14,8 @@ export const formPatientData = [
     label: 'INITIALS:',
     textErrorMessage: REQUIRE_2_CHARACTERS,
     amountOfCharacters: 2,
-    isRequired: true
+    isRequired: true,
+    pageName: 'patientData'
   },
   {
     id: uuid(),
@@ -27,7 +28,8 @@ export const formPatientData = [
     currentMonth: new Date().getMonth() + 1,
     currentYear: new Date().getFullYear(),
     isRequired: true,
-    type: 'text'
+    type: 'text',
+    pageName: 'patientData'
   },
   {
     id: uuid(),
@@ -46,7 +48,8 @@ export const formPatientData = [
       }
     ],
     isRequired: true,
-    type: 'radio'
+    type: 'radio',
+    pageName: 'patientData'
   },
   {
     id: uuid(),
@@ -59,7 +62,8 @@ export const formPatientData = [
     minToValidate: 0,
     maxToValidate: 120,
     type: 'range',
-    step: 1
+    step: 1,
+    pageName: 'patientData'
   },
   {
     id: uuid(),
@@ -73,7 +77,8 @@ export const formPatientData = [
     maxToValidate: 251,
     type: 'range',
     unit: 'cm',
-    step: 1
+    step: 1,
+    pageName: 'patientData'
   },
   {
     id: uuid(),
@@ -87,6 +92,7 @@ export const formPatientData = [
     minToValidate: 0,
     maxToValidate: 610,
     step: 1,
-    unit: 'kg'
+    unit: 'kg',
+    pageName: 'patientData'
   }
 ]

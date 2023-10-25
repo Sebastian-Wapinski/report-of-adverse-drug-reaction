@@ -4,21 +4,21 @@ import { StyledFieldTextarea, Textarea, StyledLabel } from './FieldTextarea.styl
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
 
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { validateForm } from '../../validation/validateForm'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
+import { FormContext } from '../../contexts/FormContext'
 
 export const FieldTextarea = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { id, name, label, rows = 0, cols = 0, textErrorMessage, isRequired } = fieldData
+  const { id, name, label, rows = 0, cols = 0, textErrorMessage, isRequired, pageName } = fieldData
 
-  const { contextForm } = React.useContext(ChangeFormContext)
-  const formContext = React.useContext(contextForm)
-  const { [name]: stateValue } = formContext
+  const { [pageName]: stateData, dispatch } = React.useContext(FormContext)
+  const { [name]: stateValue } = stateData
 
   const handleOnChange = (e) => {
-    formContext.dispatch(e.target)
-    validateForm(e.target, formContext.dispatch, fieldData)
+    dispatch({ pageName, name, value: e.target.value })
+    validateForm(e.target, dispatch, fieldData)
   }
 
   return (
@@ -38,7 +38,7 @@ export const FieldTextarea = () => {
         onChange={handleOnChange}
       />
       {
-         setErrorMessageConditionalExpression(formContext[name + 'IsValid'], formContext[name], textErrorMessage, 'string')
+         setErrorMessageConditionalExpression(stateData[name + 'IsValid'], stateData[name], textErrorMessage, 'string')
         }
     </StyledFieldTextarea>
   )

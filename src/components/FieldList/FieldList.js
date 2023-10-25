@@ -3,17 +3,17 @@ import React from 'react'
 import { StyledFieldList, ListContainer, ListPosition, StyledInput, InputListContainer, StyleDivToggleFalseList, StyledLabel } from './FieldList.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 import { validateForm } from '../../validation/validateForm'
+import { FormContext } from '../../contexts/FormContext'
 
 export const FieldList = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { id, name, label, list = [], isRequired, textErrorMessage } = fieldData
+  const { id, name, label, list = [], isRequired, textErrorMessage, pageName } = fieldData
 
-  const { contextForm } = React.useContext(ChangeFormContext)
-  const formContext = React.useContext(contextForm)
-  const { dispatch, result } = formContext
+  const { dispatch, [pageName]: stateData } = React.useContext(FormContext)
+  const { result } = stateData
 
   const [activeList, setActiveList] = React.useState(false)
 
@@ -26,7 +26,7 @@ export const FieldList = () => {
   }
 
   const changeState = (e) => {
-    dispatch({ name: 'result', value: e.target.innerText })
+    dispatch({ pageName: 'classification', name: 'result', value: e.target.innerText })
     toggleList()
     validateForm({ name, innerText: e.target.innerText }, dispatch, fieldData)
   }

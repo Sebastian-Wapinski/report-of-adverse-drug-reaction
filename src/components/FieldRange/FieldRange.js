@@ -5,15 +5,15 @@ import { StyledFieldRange, StyledInputRange, StyledInputNumber, StaledLabel } fr
 import Unit from '../Unit'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
+import { FormContext } from '../../contexts/FormContext'
 
 export const FieldRange = () => {
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { id, name, label, min = 0, max = 0, unit = '', step = 1, isRequired, textErrorMessage, minToValidate, maxToValidate } = fieldData
+  const { id, name, label, min = 0, max = 0, unit = '', step = 1, isRequired, textErrorMessage, minToValidate, maxToValidate, pageName } = fieldData
 
-  const { contextForm } = React.useContext(ChangeFormContext)
-  const formContext = React.useContext(contextForm)
+  const { [pageName]: stateData } = React.useContext(FormContext)
 
   return (
     <StyledFieldRange>
@@ -29,7 +29,7 @@ export const FieldRange = () => {
         max={max}
         name={name}
         step={step}
-        value={formContext[name]}
+        value={stateData[name]}
       />
       <StyledInputNumber
         id={id}
@@ -41,7 +41,7 @@ export const FieldRange = () => {
       />
       <Unit>{unit}</Unit>
       {
-        setErrorMessageConditionalExpression(formContext[name + 'IsValid'], formContext[name], textErrorMessage, 'number')
+        setErrorMessageConditionalExpression(stateData[name + 'IsValid'], stateData[name], textErrorMessage, 'number')
       }
     </StyledFieldRange>
   )

@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import { StyledInput } from './Input.styled'
 import { validateForm } from '../../validation/validateForm'
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 import { setErrorMessageConditionalExpression } from '../../helper/helper'
+import { FormContext } from '../../contexts/FormContext'
 
 export const Input = (props) => {
   const {
@@ -26,31 +27,32 @@ export const Input = (props) => {
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
+  const { pageName } = fieldData
 
-  const { contextForm } = React.useContext(ChangeFormContext)
-  const formContext = React.useContext(contextForm)
+  // const { contextForm } = React.useContext(ChangeFormContext)
+  const { dispatch, [pageName]: stateData } = React.useContext(FormContext)
 
   const handleChangeData = React.useCallback((e) => {
     if (type === 'toggle' || type === 'checkboxClassification' || type === 'checkbox') {
-      formContext.dispatch({ name, value: e.target.checked })
+      dispatch({ pageName, name, value: e.target.checked })
       return
     }
 
     if (type === 'range' || type === 'number') {
-      formContext.dispatch({ name, value: Number(e.target.value) })
-      validateForm(e.target, formContext.dispatch, fieldData)
+      dispatch({ pageName, name, value: Number(e.target.value) })
+      validateForm(e.target, dispatch, fieldData)
       return
     }
 
-    formContext.dispatch(e.target)
-    validateForm(e.target, formContext.dispatch, fieldData)
-  }, [fieldData, formContext, name, type])
+    dispatch({ pageName, name, value: e.target.value })
+    validateForm(e.target, dispatch, fieldData)
+  }, [type, pageName, name, dispatch, fieldData])
 
   return (
     <>
       <StyledInput
         onChange={handleChangeData}
-        value={value || formContext[name]}
+        value={value || stateData[name]}
         name={name}
         autoComplete={'one-time-code'}
         type={type}
@@ -71,7 +73,7 @@ export const Input = (props) => {
             type === 'number' ?
           null
           :
-          setErrorMessageConditionalExpression(formContext[name + 'IsValid'], formContext[name], errorMessage, 'string')
+          setErrorMessageConditionalExpression(stateData[name + 'IsValid'], stateData[name], errorMessage, 'string')
     }
     </>
   )

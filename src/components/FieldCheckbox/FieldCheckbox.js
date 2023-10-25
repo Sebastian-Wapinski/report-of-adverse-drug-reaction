@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import { StyledFieldCheckbox, StyledCheckboxLabel, StyledLabel, StyledCheckboxesContainer, StyledInput, StyledCheckboxContainer } from './FieldCheckbox.styled'
 
 import { RenderingFieldContext } from '../../contexts/RenderingFieldContext'
-import { ChangeFormContext } from '../../contexts/ChangeFormContext'
+import { FormContext } from '../../contexts/FormContext'
+// import { ChangeFormContext } from '../../contexts/ChangeFormContext'
 
 export const FieldCheckbox = (props) => {
   const {
@@ -12,10 +13,9 @@ export const FieldCheckbox = (props) => {
   } = props
 
   const { fieldData } = React.useContext(RenderingFieldContext)
-  const { label, checkboxBtn = [], isRequired } = fieldData
+  const { label, checkboxBtn = [], isRequired, pageName } = fieldData
 
-  const { contextForm } = React.useContext(ChangeFormContext)
-  const formContext = React.useContext(contextForm)
+  const { [pageName]: stateData } = React.useContext(FormContext)
 
   return (
     <StyledFieldCheckbox>
@@ -28,7 +28,7 @@ export const FieldCheckbox = (props) => {
         {
           checkboxBtn.map(checker => {
             const { checkboxId, checkboxName, checkboxLabel } = checker
-            const { [checkboxName]: stateChecked } = formContext
+            const { [checkboxName]: stateChecked } = stateData
             return (
               <StyledCheckboxContainer
                 key={checkboxId}

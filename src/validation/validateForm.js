@@ -14,7 +14,8 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
     currentDay,
     currentMonth,
     currentYear,
-    list
+    list,
+    pageName
   } = formFieldData
 
   let listElemArr
@@ -85,8 +86,8 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
               true
           )
   ) {
-    setValueForIsValid({ name: [name + 'IsValid'], value: true })
+    setValueForIsValid({ pageName, name: [name + 'IsValid'], value: true })
   } else {
-    setValueForIsValid({ name: [name + 'IsValid'], value: false })
+    setValueForIsValid({ pageName, name: [name + 'IsValid'], value: false })
   }
 }

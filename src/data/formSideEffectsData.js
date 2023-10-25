@@ -17,7 +17,8 @@ export const formSideEffectsData = [
     currentMonth: new Date().getMonth() + 1,
     currentYear: new Date().getFullYear(),
     isRequired: true,
-    type: 'text'
+    type: 'text',
+    pageName: 'sideEffects'
   },
   {
     id: uuid(),
@@ -29,20 +30,23 @@ export const formSideEffectsData = [
     rows: 10,
     cols: 40,
     isRequired: true,
-    type: 'textarea'
+    type: 'textarea',
+    pageName: 'sideEffects'
   },
   {
     id: uuid(),
     name: 'sideEffectsIsPregnant',
     label: 'IS PATIENT PREGNANT:',
     isRequired: false,
-    type: 'toggle'
+    type: 'toggle',
+    pageName: 'sideEffects'
   },
   {
     id: uuid(),
     name: 'sideEffectsSeverity',
     label: 'SERIOUS SIDE EFFECTS:',
     isRequired: false,
-    type: 'toggle'
+    type: 'toggle',
+    pageName: 'sideEffects'
   }
 ]
