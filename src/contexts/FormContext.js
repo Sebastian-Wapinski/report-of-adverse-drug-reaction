@@ -1,80 +1,48 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { formMedicData } from '../data/formMedicData'
+import { formPatientData } from '../data/formPatientData'
+import { formSideEffectsData } from '../data/formSideEffectsData'
+import { formClassificationData } from '../data/formClassificationData'
+import { formMedicinesData } from '../data/formMedicinesData'
 
 const errorMsg = () => {
   console.error('Forgot pass provider')
 }
 
-const init = {
-  medicData: {
-    doctorFirstName: '',
-    doctorLastName: '',
-    cityName: '',
-    streetName: '',
-    streetNumber: '',
-    medicalFacility: '',
-    email: '',
-    phone: '',
-    zipCode: '',
+const createInitState = (data, object) => {
+  data.forEach((formData) => {
+    object[formData[1].pageName] = []
 
-    doctorFirstNameIsValid: false,
-    doctorLastNameIsValid: false,
-    cityNameIsValid: false,
-    streetNameIsValid: false,
-    streetNumberIsValid: false,
-    medicalFacilityIsValid: false,
-    emailIsValid: false,
-    phoneIsValid: false,
-    zipCodeIsValid: false
-  },
-  patientData: {
-    initials: '',
-    birthDate: '',
-    sex: false,
-    age: 0,
-    height: 0,
-    weight: 0,
+    formData.forEach((item) => {
+      if (item.type !== 'checkboxClassification') {
+        object[item.pageName][item.name] = (
+          item.type === 'range'
+            ? 0 :
+            item.type === 'text'
+              ? '' :
+              item.type === 'radio' || item.type === 'toggle' ? false : ''
+        )
+      }
 
-    initialsIsValid: false,
-    birthDateIsValid: false,
-    sexIsValid: false,
-    ageIsValid: false,
-    heightIsValid: false,
-    weightIsValid: false
-  },
-  sideEffects: {
-    sideEffectOccurDate: '',
-    sideEffectsDescription: '',
-    sideEffectsIsPregnant: false,
-    sideEffectsSeverity: false,
+      if (item.type !== 'toggle' && item.type !== 'checkboxClassification') {
+        object[item.pageName][`${item.name}IsValid`] = false
+      }
 
-    sideEffectOccurDateIsValid: false,
-    sideEffectsDescriptionIsValid: false
-  },
-  classification: {
-    isDecease: false,
-    isDangerToLife: false,
-    isDisability: false,
-    isFetalInjury: false,
-    isOther: false,
-
-    result: '',
-    resultIsValid: false
-  },
-  medicines: {
-    medicineName: '',
-    medicineDose: '',
-    medicineAdministration: '',
-    medicineStartsDate: '',
-
-    medicineNameIsValid: false,
-    medicineDoseIsValid: false,
-    medicineAdministrationIsValid: false,
-    medicineStartsDateIsValid: false
-
-  },
-  dispatch: errorMsg
+      if (item.type === 'checkboxClassification') {
+        item.checkboxBtn.forEach(checkboxItem => {
+          object[item.pageName][checkboxItem.checkboxName] = false
+        })
+      }
+    })
+  })
 }
+
+const init = { dispatch: errorMsg }
+
+const allFormsData = [formMedicData, formPatientData, formSideEffectsData, formClassificationData, formMedicinesData]
+
+createInitState(allFormsData, init)
 
 export const FormContext = React.createContext(init)
 

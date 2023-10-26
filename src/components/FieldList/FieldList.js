@@ -27,7 +27,7 @@ export const FieldList = () => {
   const changeState = (e) => {
     dispatch({ pageName: 'classification', name: 'result', value: e.target.innerText })
     toggleList()
-    validateForm({ name, innerText: e.target.innerText }, dispatch, fieldData)
+    validateForm({ name, innerText: e.target.innerText, value: e.target.innerText }, dispatch, fieldData)
   }
 
   return (

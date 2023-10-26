@@ -72,9 +72,9 @@ export const validateForm = (formInputs, setValueForIsValid, formFieldData) => {
   }
 
   if (
-    checkMinAmountOfCharacters(minAmountOfCharacters, value.length)
+    checkMinAmountOfCharacters(minAmountOfCharacters, value.length ? value.length : 0)
           &&
-          checkAmountOfCharacters(amountOfCharacters, value.length)
+          checkAmountOfCharacters(amountOfCharacters, value.length ? value.length : 0)
           &&
           testRegExp(regExp, value)
           &&
