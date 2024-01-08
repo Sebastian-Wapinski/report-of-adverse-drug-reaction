@@ -34,10 +34,11 @@ box-shadow:  8px 8px 10px #87c9ac, -8px -8px 10px #cfffff;
 display: flex;
 justify-content: center;
 align-items: center;
+z-index: 9999;
 
 ${
   ({ $isSubmit }) => $isSubmit && css`
-  top: calc(50% - 25rem);
+  top: calc(50% - 35vh);
   `
 }
 
