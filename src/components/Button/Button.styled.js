@@ -7,7 +7,7 @@ width: 9rem;
 min-height: 3rem;
 border-radius: 50px;
 background: linear-gradient(145deg, #b7ffe9, #9ae6c4);
-box-shadow:  12px 12px 24px #79b59b, -12px -12px 24px #ddffff;
+box-shadow:  6px 6px 10px #79b59b, -6px -6px 10px #ddffff;
 color: ${props => props.theme.primaryTextColor};
 font-weight: 600;
 transition: all 0.3s ease-in-out;

@@ -45,7 +45,7 @@ const StyledInputRange = styled(Input).attrs(
   outline: 0;
   border-radius: 50px;
   height: 1rem;
-  box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
+  box-shadow:  6px 6px 10px #8cd1b3, -6px -6px 10px #caffff;
   cursor: pointer;
 
   &::-webkit-slider-thumb {
@@ -76,7 +76,7 @@ const StyledInputNumber = styled(Input)`
   border: none;
   border-radius: 30px;
   background: #ABFFDA;
-  box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
+  box-shadow:  6px 6px 10px #8cd1b3, -6px -6px 10px #caffff;
   outline: none;
   grid-area: inputNumber;
 

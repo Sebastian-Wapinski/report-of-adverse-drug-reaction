@@ -41,7 +41,7 @@ appearance: none;
   border: none;
   border-radius: 3px;
   background: ${props => props.theme.primaryBackground};
-  box-shadow:  6px 6px 10px #76b096, -6px -6px 10px #e0ffff;
+  box-shadow:  4px 4px 6px #76b096, -4px -4px 6px #e0ffff;
   cursor: pointer;
 
   transition: all 0.3s ease;

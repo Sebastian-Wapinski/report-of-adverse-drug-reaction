@@ -59,7 +59,7 @@ align-items: center;
   position: absolute;
   content: '';
   background: ${props => props.theme.primaryBackground};
-  box-shadow:  6px 6px 10px #76b096, -6px -6px 10px #e0ffff;
+  box-shadow:  4px 4px 6px #76b096, -4px -4px 6px #e0ffff;
   width: 1.5rem;
   height: 1.5rem;
   transition: 0.2s ease-in-out;

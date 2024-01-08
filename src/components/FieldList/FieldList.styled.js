@@ -39,7 +39,7 @@ const ListPosition = styled.li`
 border: none;
 border-radius: 20px;
 background: linear-gradient(to right, ${props => props.theme.thirdBackground} 80%, ${props => props.theme.primaryBackground});
-box-shadow:  6px 6px 10px #76b096, -6px -6px 10px #e0ffff;
+box-shadow:  4px 4px 8px #8cd1b3, -4px -4px 8px #caffff;
 padding: 0.3rem 1rem;
 margin: 0.7rem 0;
 box-sizing: border-box;

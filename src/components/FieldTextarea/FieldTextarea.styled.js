@@ -25,7 +25,7 @@ const Textarea = styled.textarea`
   border: none;
   border-radius: 30px;
   background: #ABFFDA;
-  box-shadow:  7px 7px 14px #8cd1b3, -7px -7px 14px #caffff;
+  box-shadow:  4px 4px 8px #8cd1b3, -4px -4px 8px #caffff;
   outline: none;
   margin-bottom: 1rem;
   grid-area: textarea;
