@@ -1,6 +1,6 @@
 ![screen of app](/assets/img/formMainPage.png)
 
-# Friendly Animals Blog
+# Report of Adverse Drug Reaction
 
 The purpose of the application is to showcase a functional form created using the design trend known as neumorphism.
 
